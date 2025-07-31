@@ -19,6 +19,9 @@ export default function InstallButton({
 }: {
   componentCode: string;
 }) {
+  if (typeof window === "undefined") {
+    return null;
+  }
   const downloadUrl = `${window.location.protocol}//${window.location.host}/r/${componentCode}.json`;
   return (
     <Popover>
