@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "data-table",
+  "type": "registry:component",
+  "title": "Data Table",
+  "description": "A highly customizable data table component",
+  "registryDependencies": [
+    "button",
+    "dropdown-menu",
+    "input",
+    "table",
+    "select"
+  ],
+  "dependencies": [
+    "lucide-react",
+    "@tanstack/react-table"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/components/data-table/data-table.tsx",
+      "type": "registry:component"
+    }
+  ]
+}
