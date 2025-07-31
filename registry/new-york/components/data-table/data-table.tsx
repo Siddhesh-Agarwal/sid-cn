@@ -67,6 +67,7 @@ export function DataTable<TData, TValue>({
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
+  const pageSizes: number[] = [10, 25, 50];
 
   const table = useReactTable({
     data,
@@ -101,7 +102,11 @@ export function DataTable<TData, TValue>({
         />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="ml-auto">
+            <Button
+              variant="outline"
+              className="ml-auto"
+              disabled={table.getAllColumns().length <= 1}
+            >
               Columns
             </Button>
           </DropdownMenuTrigger>
@@ -180,7 +185,7 @@ export function DataTable<TData, TValue>({
       </div>
 
       {/* Pagination */}
-      <div className="flex items-center space-x-6 lg:space-x-8">
+      <div className="flex items-center space-x-6 lg:space-x-8 py-4">
         <div className="flex items-center space-x-2">
           <p className="text-sm font-medium">Rows per page</p>
           <Select
@@ -188,12 +193,13 @@ export function DataTable<TData, TValue>({
             onValueChange={(value) => {
               table.setPageSize(Number(value));
             }}
+            disabled={table.getRowCount() <= pageSizes[0]}
           >
             <SelectTrigger className="h-8 w-[70px]">
               <SelectValue placeholder={table.getState().pagination.pageSize} />
             </SelectTrigger>
             <SelectContent side="top">
-              {[10, 20, 25, 30, 40, 50].map((pageSize) => (
+              {pageSizes.map((pageSize) => (
                 <SelectItem key={pageSize} value={`${pageSize}`}>
                   {pageSize}
                 </SelectItem>

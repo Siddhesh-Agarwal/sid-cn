@@ -1,10 +1,17 @@
+import { Button } from "@/components/ui/button";
 import { useState, useRef } from "react";
 
-export type Reward = {
-  reward: string;
-  color: string;
-  weight: number;
-};
+export type Reward =
+  | {
+      reward: string;
+      weight?: number;
+      bgColor: string;
+      textColor: string;
+    }
+  | {
+      reward: string;
+      weight?: number;
+    };
 
 export function SpinningWheel({
   rewardDetails,
@@ -19,8 +26,14 @@ export function SpinningWheel({
 }) {
   // Seperate all the properties
   const rewards = rewardDetails.map((reward) => reward.reward);
-  const colors = rewardDetails.map((reward) => reward.color);
-  let weights = rewardDetails.map((reward) => reward.weight);
+  const bgColors = rewardDetails.every((reward) => "bgColor" in reward)
+    ? rewardDetails.map((reward) => reward.bgColor)
+    : ["#FFF", "#000"];
+
+  const textColors = rewardDetails.every((reward) => "textColor" in reward)
+    ? rewardDetails.map((reward) => reward.textColor)
+    : ["#000", "#FFF"];
+  let weights = rewardDetails.map((reward) => reward?.weight || 1);
   if (!weights) {
     weights = new Array(rewards.length).fill(1);
   }
@@ -83,12 +96,7 @@ export function SpinningWheel({
         className="rounded-full"
       >
         {/* Background circle */}
-        <circle
-          cx={`${radius}`}
-          cy={`${radius}`}
-          r={`${radius}`}
-          fill="#eaeaea"
-        />
+        <circle cx={`${radius}`} cy={`${radius}`} r={`${radius}`} fill="#FFF" />
 
         {/* Segments */}
         {rewards.map((reward, index) => {
@@ -121,8 +129,8 @@ export function SpinningWheel({
             <g key={index}>
               <path
                 d={path}
-                fill={colors[index % colors.length]}
-                stroke="#ffffff"
+                fill={bgColors[index % bgColors.length]}
+                stroke={textColors[index % textColors.length]}
                 strokeWidth="2"
               />
               <text
@@ -130,7 +138,7 @@ export function SpinningWheel({
                 y={textY}
                 fontSize="16"
                 fontWeight="bold"
-                fill="white"
+                fill={textColors[index % textColors.length]}
                 textAnchor="middle"
                 dominantBaseline="middle"
                 transform={`rotate(${textRotation}, ${textX}, ${textY})`}
@@ -190,17 +198,9 @@ export function SpinningWheel({
       </div>
 
       {/* Controls */}
-      <button
-        onClick={spinWheel}
-        disabled={isSpinning || disabled}
-        className={`px-6 py-2 rounded-full font-bold text-white ${
-          isSpinning
-            ? "bg-gray-500 cursor-not-allowed"
-            : "bg-green-500 hover:bg-green-600 cursor-pointer"
-        } disabled:cursor-not-allowed`}
-      >
+      <Button onClick={spinWheel} disabled={isSpinning || disabled}>
         {isSpinning ? "Spinning..." : "Spin the Wheel"}
-      </button>
+      </Button>
     </div>
   );
 }

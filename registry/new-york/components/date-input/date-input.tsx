@@ -38,7 +38,7 @@ export function DateInput({
   onChange,
 }: {
   label: string;
-  value: Date | undefined;
+  value?: Date;
   onChange: (date: Date) => void;
 }) {
   const [open, setOpen] = React.useState(false);
