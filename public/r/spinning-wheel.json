@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spinning-wheel",
+  "type": "registry:block",
+  "title": "Spinning Wheel",
+  "description": "A lottery-like spinning wheel component",
+  "files": [
+    {
+      "path": "registry/new-york/blocks/spinning-wheel/spinning-wheel.tsx",
+      "type": "registry:block"
+    }
+  ]
+}
