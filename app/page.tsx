@@ -9,6 +9,7 @@ import { SpinningWheel } from "@/registry/new-york/blocks/spinning-wheel/spinnin
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { ColumnDef } from "@tanstack/react-table";
+import InstallButton from "@/components/install-button";
 
 type Userinfo = {
   name: string;
@@ -214,11 +215,14 @@ export default function Home() {
             <h2 className="text-2xl font-semibold">Components</h2>
           </div>
           <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
-            <div className="flex items-center justify-between">
-              <h3 className="text-xl font-semibold">Date Input</h3>
-              <h4 className="text-sm text-muted-foreground sm:pl-3">
-                A beautiful date input component
-              </h4>
+            <div className="flex justify-between">
+              <div className="flex flex-col">
+                <h3 className="text-xl font-semibold">Date Input</h3>
+                <h4 className="text-sm text-muted-foreground">
+                  A beautiful date input component
+                </h4>
+              </div>
+              <InstallButton componentCode="date-input" />
             </div>
             <div className="flex items-center justify-center min-h-[400px] relative">
               <DateInput label="Enter your Date of Birth" onChange={setDate} />
@@ -226,11 +230,14 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
-            <div className="flex items-center justify-between">
-              <h3 className="text-xl font-semibold">Date Table</h3>
-              <h4 className="text-sm text-muted-foreground sm:pl-3">
-                A highly customizable data table component
-              </h4>
+            <div className="flex justify-between">
+              <div className="flex flex-col">
+                <h3 className="text-xl font-semibold">Data Table</h3>
+                <h4 className="text-sm text-muted-foreground">
+                  A highly customizable data table component
+                </h4>
+              </div>
+              <InstallButton componentCode="data-table" />
             </div>
             <div className="flex items-center justify-center min-h-[400px] relative">
               <DataTable columns={columns} data={tableData} />
@@ -243,11 +250,14 @@ export default function Home() {
             <h2 className="text-2xl font-semibold">Blocks</h2>
           </div>
           <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
-            <div className="flex items-center justify-between">
-              <h3 className="text-xl font-semibold">Spinning Wheel</h3>
-              <h4 className="text-sm text-muted-foreground sm:pl-3">
-                A lottery-like spinning wheel component
-              </h4>
+            <div className="flex justify-between">
+              <div className="flex flex-col">
+                <h3 className="text-xl font-semibold">Spinning Wheel</h3>
+                <h4 className="text-sm text-muted-foreground">
+                  A lottery-like spinning wheel component
+                </h4>
+              </div>
+              <InstallButton componentCode="spinning-wheel" />
             </div>
             <div className="flex items-center justify-center min-h-[400px] relative">
               <SpinningWheel
