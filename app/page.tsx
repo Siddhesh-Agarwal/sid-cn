@@ -5,6 +5,10 @@ import {
   DataTable,
   DataTableColumnHeader,
 } from "@/registry/new-york/components/data-table/data-table";
+import {
+  ThemeProvider,
+  ThemeToggle,
+} from "@/registry/new-york/components/theme-toggle/theme-toggle";
 import { SpinningWheel } from "@/registry/new-york/blocks/spinning-wheel/spinning-wheel";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
@@ -193,12 +197,19 @@ const columns: ColumnDef<Userinfo>[] = [
 
 export default function Home() {
   const [date, setDate] = useState<Date | null>(null);
+  const [reward, setReward] = useState<string | null>(null);
 
   useEffect(() => {
     if (date) {
-      toast(date.toUTCString());
+      toast.info("Date Selected", { description: date.toUTCString() });
     }
   }, [date]);
+
+  useEffect(() => {
+    if (reward) {
+      toast.success("Reward", { description: reward });
+    }
+  }, [reward]);
 
   return (
     <div className="max-w-3xl mx-auto flex flex-col min-h-svh px-4 py-8 gap-8">
@@ -243,6 +254,23 @@ export default function Home() {
               <DataTable columns={columns} data={tableData} />
             </div>
           </div>
+
+          <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
+            <div className="flex justify-between">
+              <div className="flex flex-col">
+                <h3 className="text-xl font-semibold">Theme Toggle</h3>
+                <h4 className="text-sm text-muted-foreground">
+                  A beautiful theme toggle component
+                </h4>
+              </div>
+              <InstallButton componentCode="theme-toggle" />
+            </div>
+            <ThemeProvider>
+              <div className="flex items-center justify-center min-h-[400px] relative">
+                <ThemeToggle />
+              </div>
+            </ThemeProvider>
+          </div>
         </section>
 
         <section id="blocks" className="flex flex-col flex-1 gap-6">
@@ -262,6 +290,7 @@ export default function Home() {
             <div className="flex items-center justify-center min-h-[400px] relative">
               <SpinningWheel
                 rewardDetails={[{ reward: "Yes!" }, { reward: "No!" }]}
+                setReward={setReward}
               />
             </div>
           </div>

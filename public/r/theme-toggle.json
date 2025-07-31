@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "theme-toggle",
+  "type": "registry:component",
+  "title": "Theme Toggle",
+  "description": "A beautiful theme toggle component",
+  "files": [
+    {
+      "path": "registry/new-york/components/theme-toggle/theme-toggle.tsx",
+      "type": "registry:component"
+    }
+  ]
+}
