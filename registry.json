@@ -1,0 +1,64 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "Sidcn",
+  "homepage": "https://acme.com",
+  "items": [
+    {
+      "name": "data-table",
+      "type": "registry:component",
+      "title": "Data Table",
+      "description": "A highly customizable data table component",
+      "registryDependencies": [
+        "button",
+        "dropdown-menu",
+        "input",
+        "table",
+        "select"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "@tanstack/react-table"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/components/data-table/data-table.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "date-input",
+      "type": "registry:component",
+      "title": "Date Input",
+      "description": "A beautiful date input component",
+      "registryDependencies": [
+        "button",
+        "calendar",
+        "input",
+        "label",
+        "popover"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/components/date-input/date-input.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "spinning-wheel",
+      "type": "registry:component",
+      "title": "Spinning Wheel",
+      "description": "A lottery-like spinning wheel component",
+      "files": [
+        {
+          "path": "registry/new-york/blocks/spinning-wheel/spinning-wheel.tsx",
+          "type": "registry:block"
+        }
+      ]
+    }
+  ]
+}
