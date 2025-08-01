@@ -4,6 +4,12 @@
   "type": "registry:component",
   "title": "Theme Toggle",
   "description": "A beautiful theme toggle component",
+  "registryDependencies": [
+    "button"
+  ],
+  "dependencies": [
+    "lucide-react"
+  ],
   "files": [
     {
       "path": "registry/new-york/components/theme-toggle/theme-toggle.tsx",
