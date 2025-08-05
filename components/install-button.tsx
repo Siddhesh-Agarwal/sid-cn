@@ -41,16 +41,20 @@ export default function InstallButton({
               <TabsTrigger value="bun">bun</TabsTrigger>
             </TabsList>
             <TabsContent value="npm">
-              <BashCommand command={`npm install ${downloadUrl}`} />
+              <BashCommand command={`npx shadcn@latest add ${downloadUrl}`} />
             </TabsContent>
             <TabsContent value="yarn">
-              <BashCommand command={`yarn add ${downloadUrl}`} />
+              <BashCommand command={`yarn shadcn@latest add ${downloadUrl}`} />
             </TabsContent>
             <TabsContent value="pnpm">
-              <BashCommand command={`pnpm add ${downloadUrl}`} />
+              <BashCommand
+                command={`pnpm dlx shadcn@latest add ${downloadUrl}`}
+              />
             </TabsContent>
             <TabsContent value="bun">
-              <BashCommand command={`bun add ${downloadUrl}`} />
+              <BashCommand
+                command={`bunx --bun shadcn@latest add ${downloadUrl}`}
+              />
             </TabsContent>
           </Tabs>
         </div>
