@@ -5,15 +5,13 @@ import {
   DataTable,
   DataTableColumnHeader,
 } from "@/registry/new-york/components/data-table/data-table";
-import {
-  ThemeProvider,
-  ThemeToggle,
-} from "@/registry/new-york/components/theme-toggle/theme-toggle";
+import { ThemeToggle } from "@/registry/new-york/components/theme-toggle/theme-toggle";
 import { SpinningWheel } from "@/registry/new-york/blocks/spinning-wheel/spinning-wheel";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { ColumnDef } from "@tanstack/react-table";
 import InstallButton from "@/components/install-button";
+import { Button } from "@/registry/new-york/components/button/button";
 
 type Userinfo = {
   name: string;
@@ -225,6 +223,27 @@ export default function Home() {
           <div className="flex items-center justify-between">
             <h2 className="text-2xl font-semibold">Components</h2>
           </div>
+
+          <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
+            <div className="flex justify-between">
+              <div className="flex flex-col">
+                <h3 className="text-xl font-semibold">Button</h3>
+                <h4 className="text-sm text-muted-foreground">
+                  A beautiful button component
+                </h4>
+              </div>
+              <InstallButton componentCode="button" />
+            </div>
+            <div className="flex flex-col items-center justify-center gap-6 min-h-[400px] relative">
+              <Button variant={"success"}>Success Variant</Button>
+              <Button variant={"warning"}>Warning Variant</Button>
+              <Button variant={"subtle"}>Subtle Variant</Button>
+              <Button variant={"glass"}>Glass Variant</Button>
+              <Button shape={"pill"}>Pill Shape</Button>
+              <Button shape={"square"}>Square Shape</Button>
+            </div>
+          </div>
+
           <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
             <div className="flex justify-between">
               <div className="flex flex-col">
@@ -265,11 +284,9 @@ export default function Home() {
               </div>
               <InstallButton componentCode="theme-toggle" />
             </div>
-            <ThemeProvider>
-              <div className="flex items-center justify-center min-h-[400px] relative">
-                <ThemeToggle />
-              </div>
-            </ThemeProvider>
+            <div className="flex items-center justify-center min-h-[400px] relative">
+              <ThemeToggle />
+            </div>
           </div>
         </section>
 
