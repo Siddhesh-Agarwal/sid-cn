@@ -55,7 +55,6 @@
         "button",
         "calendar",
         "input",
-        "label",
         "popover"
       ],
       "dependencies": [
@@ -64,6 +63,28 @@
       "files": [
         {
           "path": "registry/new-york/components/date-input/date-input.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "date-time-input",
+      "type": "registry:component",
+      "title": "Date Time Input",
+      "description": "A beautiful date time input component (form compatible)",
+      "dependencies": [
+        "date-fns",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "calendar",
+        "input",
+        "popover"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/components/date-time-input/date-time-input.tsx",
           "type": "registry:component"
         }
       ]
