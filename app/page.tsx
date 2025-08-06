@@ -1,6 +1,7 @@
 "use client";
 
 import { DateInput } from "@/registry/new-york/components/date-input/date-input";
+import { DateTimeInput } from "@/registry/new-york/components/date-time-input/date-time-input";
 import {
   DataTable,
   DataTableColumnHeader,
@@ -12,6 +13,7 @@ import { toast } from "sonner";
 import { ColumnDef } from "@tanstack/react-table";
 import InstallButton from "@/components/install-button";
 import { Button } from "@/registry/new-york/components/button/button";
+import { Label } from "@/components/ui/label";
 
 type Userinfo = {
   name: string;
@@ -255,7 +257,28 @@ export default function Home() {
               <InstallButton componentCode="date-input" />
             </div>
             <div className="flex items-center justify-center min-h-[400px] relative">
-              <DateInput label="Enter your Date of Birth" onChange={setDate} />
+              <div className="flex flex-col">
+                <Label>Enter a date</Label>
+                <DateInput onChange={setDate} />
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
+            <div className="flex justify-between">
+              <div className="flex flex-col">
+                <h3 className="text-xl font-semibold">Date Time Input</h3>
+                <h4 className="text-sm text-muted-foreground">
+                  A beautiful date time input component
+                </h4>
+              </div>
+              <InstallButton componentCode="date-time-input" />
+            </div>
+            <div className="flex items-center justify-center min-h-[400px] relative">
+              <div className="flex flex-col">
+                <Label>Enter a date and time</Label>
+                <DateTimeInput onChange={(date) => setDate(date)} />
+              </div>
             </div>
           </div>
 
