@@ -7,6 +7,7 @@
       "name": "button",
       "type": "registry:component",
       "title": "Button",
+      "extends": "button",
       "description": "A beautiful button component",
       "dependencies": [
         "@radix-ui/react-slot",
@@ -37,6 +38,7 @@
       "name": "badge",
       "type": "registry:component",
       "title": "Badge",
+      "extends": "badge",
       "description": "A beautiful badge component",
       "dependencies": [
         "@radix-ui/react-slot",
@@ -69,7 +71,7 @@
       "title": "Data Table",
       "description": "A highly customizable data table component",
       "registryDependencies": [
-        "button",
+        "https://sid-cn.vercel.app/r/button.json",
         "dropdown-menu",
         "input",
         "table",
@@ -92,7 +94,7 @@
       "title": "Date Input",
       "description": "A beautiful date input component",
       "registryDependencies": [
-        "button",
+        "https://sid-cn.vercel.app/r/button.json",
         "calendar",
         "input",
         "popover"
@@ -117,7 +119,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "button",
+        "https://sid-cn.vercel.app/r/button.json",
         "calendar",
         "input",
         "popover"
@@ -135,7 +137,7 @@
       "title": "Theme Toggle",
       "description": "A beautiful theme toggle component",
       "registryDependencies": [
-        "button"
+        "https://sid-cn.vercel.app/r/button.json"
       ],
       "dependencies": [
         "lucide-react"

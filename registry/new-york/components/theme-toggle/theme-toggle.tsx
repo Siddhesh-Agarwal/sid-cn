@@ -1,7 +1,7 @@
 "use client";
 
 import { Moon, Sun } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/button";
 import { useTheme, ThemeProvider as NextThemesProvider } from "next-themes";
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {

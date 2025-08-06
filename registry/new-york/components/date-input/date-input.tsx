@@ -3,7 +3,7 @@
 import * as React from "react";
 import { CalendarIcon } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/button";
 import { Calendar } from "@/components/ui/calendar";
 import { Input } from "@/components/ui/input";
 import {

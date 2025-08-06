@@ -1,5 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "extends": "badge",
   "name": "badge",
   "type": "registry:component",
   "title": "Badge",
