@@ -21,7 +21,47 @@
           "path": "registry/new-york/components/button/utils.ts",
           "type": "registry:lib"
         }
-      ]
+      ],
+      "cssVars": {
+        "light": {
+          "success": "hsl(142 75% 45%)",
+          "warning": "hsl(40 90% 48%)"
+        },
+        "dark": {
+          "success": "hsl(142 65% 50%)",
+          "warning": "hsl(40 80% 55%)"
+        }
+      }
+    },
+    {
+      "name": "badge",
+      "type": "registry:component",
+      "title": "Badge",
+      "description": "A beautiful badge component",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "class-variance-authority"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/components/badge/badge.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york/components/button/utils.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "success": "hsl(142 75% 45%)",
+          "warning": "hsl(40 90% 48%)"
+        },
+        "dark": {
+          "success": "hsl(142 65% 50%)",
+          "warning": "hsl(40 80% 55%)"
+        }
+      }
     },
     {
       "name": "data-table",
