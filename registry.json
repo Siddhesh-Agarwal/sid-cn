@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "Sidcn",
-  "homepage": "https://acme.com",
+  "homepage": "https://sid-cn.vercel.app/",
   "items": [
     {
       "name": "button",
@@ -15,11 +15,11 @@
       ],
       "files": [
         {
-          "path": "registry/new-york/components/button/button.tsx",
+          "path": "registry/new-york/components/button.tsx",
           "type": "registry:component"
         },
         {
-          "path": "registry/new-york/components/button/utils.ts",
+          "path": "registry/new-york/lib/utils.ts",
           "type": "registry:lib"
         }
       ],
@@ -46,11 +46,11 @@
       ],
       "files": [
         {
-          "path": "registry/new-york/components/badge/badge.tsx",
+          "path": "registry/new-york/components/badge.tsx",
           "type": "registry:component"
         },
         {
-          "path": "registry/new-york/components/button/utils.ts",
+          "path": "registry/new-york/lib/utils.ts",
           "type": "registry:lib"
         }
       ],
@@ -83,7 +83,7 @@
       ],
       "files": [
         {
-          "path": "registry/new-york/components/data-table/data-table.tsx",
+          "path": "registry/new-york/components/data-table.tsx",
           "type": "registry:component"
         }
       ]
@@ -104,7 +104,7 @@
       ],
       "files": [
         {
-          "path": "registry/new-york/components/date-input/date-input.tsx",
+          "path": "registry/new-york/components/date-input.tsx",
           "type": "registry:component"
         }
       ]
@@ -126,7 +126,7 @@
       ],
       "files": [
         {
-          "path": "registry/new-york/components/date-time-input/date-time-input.tsx",
+          "path": "registry/new-york/components/date-time-input.tsx",
           "type": "registry:component"
         }
       ]
@@ -144,7 +144,7 @@
       ],
       "files": [
         {
-          "path": "registry/new-york/components/theme-toggle/theme-toggle.tsx",
+          "path": "registry/new-york/components/theme-toggle.tsx",
           "type": "registry:component"
         }
       ]
@@ -154,6 +154,9 @@
       "type": "registry:component",
       "title": "Spinning Wheel",
       "description": "A lottery-like spinning wheel component",
+      "registryDependencies": [
+        "https://sid-cn.vercel.app/r/button.json"
+      ],
       "files": [
         {
           "path": "registry/new-york/blocks/spinning-wheel/spinning-wheel.tsx",

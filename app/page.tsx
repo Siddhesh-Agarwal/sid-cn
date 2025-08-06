@@ -4,15 +4,15 @@ import { ColumnDef } from "@tanstack/react-table";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
-import { DateInput } from "@/registry/new-york/components/date-input/date-input";
-import { DateTimeInput } from "@/registry/new-york/components/date-time-input/date-time-input";
+import { DateInput } from "@/registry/new-york/components/date-input";
+import { DateTimeInput } from "@/registry/new-york/components/date-time-input";
 import {
   DataTable,
   DataTableColumnHeader,
-} from "@/registry/new-york/components/data-table/data-table";
-import { ThemeToggle } from "@/registry/new-york/components/theme-toggle/theme-toggle";
+} from "@/registry/new-york/components/data-table";
+import { ThemeToggle } from "@/registry/new-york/components/theme-toggle";
 import { SpinningWheel } from "@/registry/new-york/blocks/spinning-wheel/spinning-wheel";
-import { Button } from "@/registry/new-york/components/button/button";
+import { Button } from "@/registry/new-york/components/button";
 import InstallButton from "@/components/install-button";
 import { Label } from "@/components/ui/label";
 
@@ -237,13 +237,45 @@ export default function Home() {
               </div>
               <InstallButton componentCode="button" />
             </div>
-            <div className="flex flex-col items-center justify-center gap-6 min-h-[400px] relative">
-              <Button variant={"success"}>Success Variant</Button>
-              <Button variant={"warning"}>Warning Variant</Button>
-              <Button variant={"subtle"}>Subtle Variant</Button>
-              <Button variant={"glass"}>Glass Variant</Button>
-              <Button shape={"pill"}>Pill Shape</Button>
-              <Button shape={"square"}>Square Shape</Button>
+            <div className="grid grid-cols-2 md:grid-cols-4 items-center min-h-[200px] gap-4">
+              <Button variant={"success"} shape={"default"}>
+                Success + default
+              </Button>
+              <Button variant={"warning"} shape={"default"}>
+                Warning + default
+              </Button>
+              <Button variant={"subtle"} shape={"default"}>
+                Subtle + default
+              </Button>
+              <Button variant={"glass"} shape={"default"}>
+                Glass + default
+              </Button>
+
+              <Button variant={"success"} shape={"pill"}>
+                Success + pill
+              </Button>
+              <Button variant={"warning"} shape={"pill"}>
+                Warning + pill
+              </Button>
+              <Button variant={"subtle"} shape={"pill"}>
+                Subtle + pill
+              </Button>
+              <Button variant={"glass"} shape={"pill"}>
+                Glass + pill
+              </Button>
+
+              <Button variant={"success"} shape={"square"}>
+                Success + square
+              </Button>
+              <Button variant={"warning"} shape={"square"}>
+                Warning + square
+              </Button>
+              <Button variant={"subtle"} shape={"square"}>
+                Subtle + square
+              </Button>
+              <Button variant={"glass"} shape={"square"}>
+                Glass + square
+              </Button>
             </div>
           </div>
 
