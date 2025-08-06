@@ -1,5 +1,9 @@
 "use client";
 
+import { ColumnDef } from "@tanstack/react-table";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
+
 import { DateInput } from "@/registry/new-york/components/date-input/date-input";
 import { DateTimeInput } from "@/registry/new-york/components/date-time-input/date-time-input";
 import {
@@ -8,11 +12,8 @@ import {
 } from "@/registry/new-york/components/data-table/data-table";
 import { ThemeToggle } from "@/registry/new-york/components/theme-toggle/theme-toggle";
 import { SpinningWheel } from "@/registry/new-york/blocks/spinning-wheel/spinning-wheel";
-import { useEffect, useState } from "react";
-import { toast } from "sonner";
-import { ColumnDef } from "@tanstack/react-table";
-import InstallButton from "@/components/install-button";
 import { Button } from "@/registry/new-york/components/button/button";
+import InstallButton from "@/components/install-button";
 import { Label } from "@/components/ui/label";
 
 type Userinfo = {
