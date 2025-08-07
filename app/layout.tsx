@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
+import Providers from "./providers";
 import "./globals.css";
-import { ThemeProvider } from "@/registry/new-york/components/theme-toggle";
+import AppSidebar from "@/components/app-sidebar";
 
 const sans = Inter({
   variable: "--font-inter",
@@ -31,7 +32,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${sans.variable} ${mono.variable} antialiased`}>
-        <ThemeProvider>{children}</ThemeProvider>
+        <Providers>
+          <AppSidebar>{children}</AppSidebar>
+        </Providers>
         <Toaster richColors />
       </body>
     </html>
