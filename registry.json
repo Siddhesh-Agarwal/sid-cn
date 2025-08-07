@@ -149,6 +149,27 @@
       ]
     },
     {
+      "name": "markdown-editor",
+      "type": "registry:block",
+      "title": "Markdown Editor",
+      "description": "A beautiful markdown editor component",
+      "registryDependencies": [
+        "https://sid-cn.vercel.app/r/button.json",
+        "separator",
+        "textarea"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "marked"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/blocks/markdown-editor/markdown-editor.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
       "name": "theme-toggle",
       "type": "registry:component",
       "title": "Theme Toggle",

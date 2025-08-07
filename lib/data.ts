@@ -5,12 +5,12 @@ type PageType = {
 
 export const componentPages: PageType[] = [
   {
-    name: "Button",
-    path: "/components/button",
-  },
-  {
     name: "Badge",
     path: "/components/badge",
+  },
+  {
+    name: "Button",
+    path: "/components/button",
   },
   {
     name: "Data Table",
@@ -27,6 +27,10 @@ export const componentPages: PageType[] = [
 ];
 
 export const blockPages: PageType[] = [
+  {
+    name: "Markdown Editor",
+    path: "/blocks/markdown-editor",
+  },
   {
     name: "Spinning Wheel",
     path: "/blocks/spinning-wheel",
