@@ -23,7 +23,7 @@ export default function AppSidebar({
 }) {
   return (
     <div className="w-full h-screen flex flex-1">
-      <Sidebar>
+      <Sidebar className="overflow-x-hidden">
         <SidebarHeader>
           <SidebarMenuItem className="list-none">
             <SidebarMenuButton asChild>
@@ -47,7 +47,6 @@ export default function AppSidebar({
               ))}
             </SidebarGroupContent>
           </SidebarGroup>
-          <SidebarSeparator />
           <SidebarGroup>
             <Link href="/blocks">
               <SidebarGroupLabel>Blocks</SidebarGroupLabel>
