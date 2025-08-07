@@ -16,7 +16,8 @@
       "files": [
         {
           "path": "registry/new-york/components/button.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "~/components/ui/button.tsx"
         },
         {
           "path": "registry/new-york/lib/utils.ts",
@@ -47,7 +48,8 @@
       "files": [
         {
           "path": "registry/new-york/components/badge.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "~/components/ui/badge.tsx"
         },
         {
           "path": "registry/new-york/lib/utils.ts",
@@ -84,7 +86,8 @@
       "files": [
         {
           "path": "registry/new-york/components/data-table.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "~/components/ui/data-table.tsx"
         }
       ]
     },
@@ -105,7 +108,8 @@
       "files": [
         {
           "path": "registry/new-york/components/date-input.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "~/components/ui/date-input.tsx"
         }
       ]
     },
@@ -127,7 +131,8 @@
       "files": [
         {
           "path": "registry/new-york/components/date-time-input.tsx",
-          "type": "registry:component"
+          "type": "registry:component",
+          "target": "~/components/ui/date-time-input.tsx"
         }
       ]
     },
