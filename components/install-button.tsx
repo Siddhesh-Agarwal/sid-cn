@@ -1,5 +1,5 @@
 import { Download } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "@/registry/new-york/components/button";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 

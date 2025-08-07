@@ -14,6 +14,7 @@ import {
 import { ThemeToggle } from "@/registry/new-york/components/theme-toggle";
 import { blockPages, componentPages } from "@/lib/data";
 import Link from "next/link";
+import { GitHubLink } from "./github-link";
 
 export default function AppSidebar({
   children,
@@ -64,7 +65,10 @@ export default function AppSidebar({
       <div className="flex flex-col w-full">
         <nav className="bg-sidebar flex justify-between items-center px-4">
           <SidebarTrigger />
-          <ThemeToggle />
+          <div className="div">
+            <GitHubLink />
+            <ThemeToggle />
+          </div>
         </nav>
         <div className="w-full h-full overflow-y-auto overflow-x-hidden p-4">
           {children}

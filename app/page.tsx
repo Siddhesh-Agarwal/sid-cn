@@ -1,6 +1,7 @@
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/registry/new-york/components/badge";
+import { Button } from "@/registry/new-york/components/button";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function LandingPage() {
   return (
@@ -24,13 +25,17 @@ export default function LandingPage() {
       </p>
 
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
-        <Button size="lg" className="text-base">
-          Browse Components
-          <ArrowRight className="ml-2 h-4 w-4" />
+        <Button size="lg" className="text-base" asChild>
+          <Link href={"/components"}>
+            Browse Components
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
         </Button>
-        <Button variant="outline" size="lg" className="text-base">
-          Browse Blocks
-          <ArrowRight className="ml-2 h-4 w-4" />
+        <Button variant="outline" size="lg" className="text-base" asChild>
+          <Link href={"/blocks"}>
+            Browse Blocks
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
         </Button>
       </div>
     </section>
