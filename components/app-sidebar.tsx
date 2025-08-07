@@ -8,7 +8,6 @@ import {
   SidebarHeader,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarSeparator,
   SidebarTrigger,
 } from "./ui/sidebar";
 import { ThemeToggle } from "@/registry/new-york/components/theme-toggle";
