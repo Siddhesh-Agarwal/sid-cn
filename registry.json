@@ -137,6 +137,18 @@
       ]
     },
     {
+      "name": "icons",
+      "type": "registry:item",
+      "title": "Icons",
+      "description": "A collection of popular icons",
+      "files": [
+        {
+          "path": "registry/new-york/components/icons.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "theme-toggle",
       "type": "registry:component",
       "title": "Theme Toggle",
