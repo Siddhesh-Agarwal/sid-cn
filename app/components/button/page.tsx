@@ -6,20 +6,17 @@ export default function Page() {
   const shapes = ["default", "pill", "square"];
 
   return (
-    <div className="flex flex-col gap-4 p-4 min-h-[450px] relative">
-      <div className="flex justify-between">
-        <div className="flex flex-col">
-          <h3 className="text-xl font-semibold">Button</h3>
-          <h4 className="text-sm text-muted-foreground">
-            A beautiful button component
-          </h4>
-        </div>
-        <InstallButton componentCode="button" />
+    <div className="flex flex-col gap-4 p-4 min-h-full">
+      <div className="flex flex-col">
+        <h3 className="text-xl font-semibold">Button</h3>
+        <h4 className="text-sm text-muted-foreground">
+          A beautiful button component
+        </h4>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 items-center min-h-[200px] gap-4">
-        {variants
-          .map((variant) =>
-            shapes.map((shape) => (
+      <div className="grid grid-cols-2 md:grid-cols-4 items-center min-h-[200px] gap-4 border rounded-md p-4">
+        {shapes
+          .map((shape) =>
+            variants.map((variant) => (
               <Button
                 key={`${variant}-${shape}`}
                 variant={variant as any}
@@ -31,6 +28,9 @@ export default function Page() {
           )
           .flat()}
       </div>
+
+      <h2 className="text-xl font-semibold">Install</h2>
+      <InstallButton componentCode="button" />
     </div>
   );
 }

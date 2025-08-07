@@ -1,18 +1,29 @@
-import { Download } from "lucide-react";
-import { Button } from "@/registry/new-york/components/button";
-import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
+"use client";
+
+import { Clipboard, Terminal } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
+import { Tooltip, TooltipTrigger } from "./ui/tooltip";
+import { Button } from "@/registry/new-york/components/button";
+import React from "react";
 
 function BashCommand({ command }: { command: string }) {
   return (
-    <code
-      className="font-mono text-sm border px-1 py-0.5 line-clamp-1 overflow-clip"
-      lang="bash"
-    >
-      {command}
-    </code>
+    <pre>
+      <code
+        className="relative font-mono text-sm leading-none"
+        data-language="bash"
+      >
+        {command}
+      </code>
+    </pre>
   );
 }
+
+function copyCommand(command: string) {
+  navigator.clipboard.writeText(command);
+}
+
+type PackageManager = "npm" | "yarn" | "pnpm" | "bun";
 
 export default function InstallButton({
   componentCode,
@@ -22,43 +33,77 @@ export default function InstallButton({
   if (typeof window === "undefined") {
     return null;
   }
+  const [packageManager, setPackageManager] =
+    React.useState<PackageManager>("npm");
   const downloadUrl = `${window.location.protocol}//${window.location.host}/r/${componentCode}.json`;
+
+  const commands = {
+    npm: `npx shadcn@latest add ${downloadUrl}`,
+    yarn: `yarn shadcn@latest add ${downloadUrl}`,
+    pnpm: `pnpm dlx shadcn@latest add ${downloadUrl}`,
+    bun: `bunx --bun shadcn@latest add ${downloadUrl}`,
+  };
+
   return (
-    <Popover>
-      <PopoverTrigger asChild>
-        <Button size={"icon"} variant={"outline"}>
-          <Download />
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className="max-w-3xl w-full">
-        <div>
-          <p>Run the following command</p>
-          <Tabs>
-            <TabsList defaultValue={"npm"}>
-              <TabsTrigger value="npm">npm</TabsTrigger>
-              <TabsTrigger value="yarn">yarn</TabsTrigger>
-              <TabsTrigger value="pnpm">pnpm</TabsTrigger>
-              <TabsTrigger value="bun">bun</TabsTrigger>
-            </TabsList>
-            <TabsContent value="npm">
-              <BashCommand command={`npx shadcn@latest add ${downloadUrl}`} />
-            </TabsContent>
-            <TabsContent value="yarn">
-              <BashCommand command={`yarn shadcn@latest add ${downloadUrl}`} />
-            </TabsContent>
-            <TabsContent value="pnpm">
-              <BashCommand
-                command={`pnpm dlx shadcn@latest add ${downloadUrl}`}
-              />
-            </TabsContent>
-            <TabsContent value="bun">
-              <BashCommand
-                command={`bunx --bun shadcn@latest add ${downloadUrl}`}
-              />
-            </TabsContent>
-          </Tabs>
+    <div className="overflow-x-auto relative max-w-xl border rounded-md">
+      <Tabs
+        value={packageManager}
+        onValueChange={(val) => setPackageManager(val as PackageManager)}
+        className="gap-0"
+      >
+        <div className="border-border/50 flex items-center gap-2 border-b px-2 py-1">
+          <div className="flex size-4 items-center justify-center rounded-[1px] opacity-70">
+            <Terminal />
+          </div>
+          <TabsList className="rounded-none bg-transparent p-0">
+            <TabsTrigger
+              value="npm"
+              className="data-[state=active]:bg-accent data-[state=active]:border-input h-7 border border-transparent pt-0.5 data-[state=active]:shadow-none"
+            >
+              npm
+            </TabsTrigger>
+            <TabsTrigger
+              value="yarn"
+              className="data-[state=active]:bg-accent data-[state=active]:border-input h-7 border border-transparent pt-0.5 data-[state=active]:shadow-none"
+            >
+              yarn
+            </TabsTrigger>
+            <TabsTrigger
+              value="pnpm"
+              className="data-[state=active]:bg-accent data-[state=active]:border-input h-7 border border-transparent pt-0.5 data-[state=active]:shadow-none"
+            >
+              pnpm
+            </TabsTrigger>
+            <TabsTrigger
+              value="bun"
+              className="data-[state=active]:bg-accent data-[state=active]:border-input h-7 border border-transparent pt-0.5 data-[state=active]:shadow-none"
+            >
+              bun
+            </TabsTrigger>
+          </TabsList>
         </div>
-      </PopoverContent>
-    </Popover>
+        <div className="no-scrollbar overflow-x-auto">
+          {Object.entries(commands).map(([key, value]) => (
+            <TabsContent value={key} className="mt-0 px-4 py-3.5">
+              <BashCommand command={value} />
+            </TabsContent>
+          ))}
+        </div>
+      </Tabs>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Button
+            data-slot="copy-button"
+            size="icon"
+            variant="ghost"
+            className="absolute top-2 right-2 z-10 size-7 opacity-70 hover:opacity-100 focus-visible:opacity-100 border"
+            onClick={() => copyCommand(commands[packageManager])}
+          >
+            <span className="sr-only">Copy</span>
+            <Clipboard />
+          </Button>
+        </TooltipTrigger>
+      </Tooltip>
+    </div>
   );
 }

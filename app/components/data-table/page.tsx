@@ -189,19 +189,18 @@ const columns: ColumnDef<Userinfo>[] = [
 
 export default function Page() {
   return (
-    <div className="flex flex-col gap-4 p-4 min-h-[450px] relative">
-      <div className="flex justify-between">
-        <div className="flex flex-col">
-          <h3 className="text-xl font-semibold">Data Table</h3>
-          <h4 className="text-sm text-muted-foreground">
-            A highly customizable data table component
-          </h4>
-        </div>
-        <InstallButton componentCode="data-table" />
+    <div className="flex flex-col gap-4 p-4 min-h-full">
+      <div className="flex flex-col">
+        <h3 className="text-xl font-semibold">Data Table</h3>
+        <h4 className="text-sm text-muted-foreground">
+          A highly customizable data table component
+        </h4>
       </div>
-      <div className="flex items-center justify-center min-h-[400px] relative">
+      <div className="flex items-center justify-center min-h-[400px] border rounded-md p-4">
         <DataTable columns={columns} data={tableData} />
       </div>
+      <h2 className="text-xl font-semibold">Install</h2>
+      <InstallButton componentCode="data-table" />
     </div>
   );
 }

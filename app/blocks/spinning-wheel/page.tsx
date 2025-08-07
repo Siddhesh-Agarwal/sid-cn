@@ -15,22 +15,21 @@ export default function Page() {
   }, [reward]);
 
   return (
-    <div className="flex flex-col gap-4 p-4 min-h-[450px] relative">
-      <div className="flex justify-between">
-        <div className="flex flex-col">
-          <h3 className="text-xl font-semibold">Spinning Wheel</h3>
-          <h4 className="text-sm text-muted-foreground">
-            A lottery-like spinning wheel component
-          </h4>
-        </div>
-        <InstallButton componentCode="spinning-wheel" />
+    <div className="flex flex-col gap-4 p-4 min-h-full">
+      <div className="flex flex-col">
+        <h3 className="text-xl font-semibold">Spinning Wheel</h3>
+        <h4 className="text-sm text-muted-foreground">
+          A lottery-like spinning wheel component
+        </h4>
       </div>
-      <div className="flex items-center justify-center min-h-[400px] relative">
+      <div className="flex items-center justify-center min-h-[400px] border rounded-md p-4">
         <SpinningWheel
           rewardDetails={[{ reward: "Yes!" }, { reward: "No!" }]}
           setReward={setReward}
         />
       </div>
+      <h2 className="text-xl font-semibold">Install</h2>
+      <InstallButton componentCode="spinning-wheel" />
     </div>
   );
 }
