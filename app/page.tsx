@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Copy, Download, Star } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function LandingPage() {
   return (
