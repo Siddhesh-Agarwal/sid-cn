@@ -13,6 +13,7 @@ import {
 } from "./ui/sidebar";
 import { ThemeToggle } from "@/registry/new-york/components/theme-toggle";
 import { blockPages, componentPages } from "@/lib/data";
+import Link from "next/link";
 
 export default function AppSidebar({
   children,
@@ -25,35 +26,35 @@ export default function AppSidebar({
         <SidebarHeader>
           <SidebarMenuItem className="list-none">
             <SidebarMenuButton asChild>
-              <a href="/">
+              <Link href="/">
                 <Square />
                 Sidcn
-              </a>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarHeader>
         <SidebarContent>
           <SidebarGroup>
-            <a href="/components">
+            <Link href="/components">
               <SidebarGroupLabel>Components</SidebarGroupLabel>
-            </a>
+            </Link>
             <SidebarGroupContent>
               {componentPages.map((page, index) => (
                 <SidebarMenuButton key={index}>
-                  <a href={page.path}>{page.name}</a>
+                  <Link href={page.path}>{page.name}</Link>
                 </SidebarMenuButton>
               ))}
             </SidebarGroupContent>
           </SidebarGroup>
           <SidebarSeparator />
           <SidebarGroup>
-            <a href="/blocks">
+            <Link href="/blocks">
               <SidebarGroupLabel>Blocks</SidebarGroupLabel>
-            </a>
+            </Link>
             <SidebarGroupContent>
               {blockPages.map((page, index) => (
                 <SidebarMenuButton key={index}>
-                  <a href={page.path}>{page.name}</a>
+                  <Link href={page.path}>{page.name}</Link>
                 </SidebarMenuButton>
               ))}
             </SidebarGroupContent>
