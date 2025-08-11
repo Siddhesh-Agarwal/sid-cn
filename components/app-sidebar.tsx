@@ -39,10 +39,12 @@ export default function AppSidebar({
               <SidebarGroupLabel>Components</SidebarGroupLabel>
             </Link>
             <SidebarGroupContent>
-              {componentPages.map((page, index) => (
-                <SidebarMenuButton key={index}>
-                  <Link href={page.path}>{page.name}</Link>
-                </SidebarMenuButton>
+              {componentPages.map((page) => (
+                <Link href={page.path} key={page.name}>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton>{page.name}</SidebarMenuButton>
+                  </SidebarMenuItem>
+                </Link>
               ))}
             </SidebarGroupContent>
           </SidebarGroup>
@@ -51,10 +53,12 @@ export default function AppSidebar({
               <SidebarGroupLabel>Blocks</SidebarGroupLabel>
             </Link>
             <SidebarGroupContent>
-              {blockPages.map((page, index) => (
-                <SidebarMenuButton key={index}>
-                  <Link href={page.path}>{page.name}</Link>
-                </SidebarMenuButton>
+              {blockPages.map((page) => (
+                <Link href={page.path} key={page.name}>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton>{page.name}</SidebarMenuButton>
+                  </SidebarMenuItem>
+                </Link>
               ))}
             </SidebarGroupContent>
           </SidebarGroup>
