@@ -170,6 +170,96 @@
       ]
     },
     {
+      "name": "spinning-wheel",
+      "type": "registry:component",
+      "title": "Spinning Wheel",
+      "description": "A lottery-like spinning wheel component",
+      "registryDependencies": [
+        "https://sid-cn.vercel.app/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/blocks/spinning-wheel/spinning-wheel.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "supabase-auth",
+      "type": "registry:component",
+      "title": "Supabase Auth",
+      "description": "A complete working supabase auth setup",
+      "registryDependencies": [
+        "https://sid-cn.vercel.app/r/button.json",
+        "dialog",
+        "dropdown",
+        "form",
+        "input",
+        "tabs"
+      ],
+      "dependencies": [
+        "@supabase/ssr",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "registry/new-york/supabase/components/auth.tsx",
+          "target": "~/components/supabase/auth.tsx"
+        },
+        {
+          "type": "registry:component",
+          "path": "registry/new-york/supabase/components/sign-in-form.tsx",
+          "target": "~/components/supabase/sign-in-form.tsx"
+        },
+        {
+          "type": "registry:component",
+          "path": "registry/new-york/supabase/components/sign-up-form.tsx",
+          "target": "~/components/supabase/sign-up-form.tsx"
+        },
+        {
+          "type": "registry:hook",
+          "path": "registry/new-york/supabase/lib/auth.ts",
+          "target": "~/lib/supabase/auth.ts"
+        },
+        {
+          "type": "registry:lib",
+          "path": "registry/new-york/supabase/lib/client.ts",
+          "target": "~/lib/supabase/client.ts"
+        },
+        {
+          "type": "registry:lib",
+          "path": "registry/new-york/supabase/lib/middleware.ts",
+          "target": "~/lib/supabase/middleware.ts"
+        },
+        {
+          "type": "registry:lib",
+          "path": "registry/new-york/supabase/lib/server.ts",
+          "target": "~/lib/supabase/server.ts"
+        },
+        {
+          "type": "registry:page",
+          "path": "registry/new-york/supabase/pages/sign-in.tsx",
+          "target": "~/app/auth/sign-in/page.tsx"
+        },
+        {
+          "type": "registry:page",
+          "path": "registry/new-york/supabase/pages/sign-up.tsx",
+          "target": "~/app/auth/sign-up/page.tsx"
+        },
+        {
+          "type": "registry:file",
+          "path": "registry/new-york/supabase/api/sign-in.ts",
+          "target": "~/app/api/auth/sign-in/route.ts"
+        },
+        {
+          "type": "registry:file",
+          "path": "registry/new-york/supabase/api/sign-up.ts",
+          "target": "~/app/api/auth/sign-up/route.ts"
+        }
+      ]
+    },
+    {
       "name": "theme-toggle",
       "type": "registry:component",
       "title": "Theme Toggle",
@@ -184,21 +274,6 @@
         {
           "path": "registry/new-york/components/theme-toggle.tsx",
           "type": "registry:component"
-        }
-      ]
-    },
-    {
-      "name": "spinning-wheel",
-      "type": "registry:component",
-      "title": "Spinning Wheel",
-      "description": "A lottery-like spinning wheel component",
-      "registryDependencies": [
-        "https://sid-cn.vercel.app/r/button.json"
-      ],
-      "files": [
-        {
-          "path": "registry/new-york/blocks/spinning-wheel/spinning-wheel.tsx",
-          "type": "registry:block"
         }
       ]
     }
