@@ -201,6 +201,10 @@
         "@supabase/ssr",
         "lucide-react"
       ],
+      "envVars": {
+        "NEXT_PUBLIC_SUPABASE_URL": "",
+        "NEXT_PUBLIC_SUPABASE_ANON_KEY": ""
+      },
       "files": [
         {
           "type": "registry:component",

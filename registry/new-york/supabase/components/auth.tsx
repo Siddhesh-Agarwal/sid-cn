@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/registry/new-york/components/button";
 import {
   Dialog,
   DialogContent,
@@ -17,9 +17,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { SignInForm } from "./sign-in-form";
-import { SignUpForm } from "./sign-up-form";
-import { useAuth } from "@/lib/supabase/auth";
+import { SignInForm } from "@/registry/new-york/supabase/components/sign-in-form";
+import { SignUpForm } from "@/registry/new-york/supabase/components/sign-up-form";
+import { useAuth } from "@/registry/new-york/supabase/lib/auth";
 
 import React from "react";
 import Link from "next/link";

@@ -13,7 +13,19 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { Button } from "@/components/ui/button";
+import {
+  ChevronLeft,
+  ChevronRight,
+  ChevronsLeft,
+  ChevronsRight,
+  ChevronsUpDown,
+  EyeOff,
+  SortAsc,
+  SortDesc,
+} from "lucide-react";
+import React from "react";
+
+import { Button } from "@/registry/new-york/components/button";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -38,17 +50,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import {
-  ChevronLeft,
-  ChevronRight,
-  ChevronsLeft,
-  ChevronsRight,
-  ChevronsUpDown,
-  EyeOff,
-  SortAsc,
-  SortDesc,
-} from "lucide-react";
-import React from "react";
 import { cn } from "@/lib/utils";
 
 interface DataTableProps<TData, TValue> {

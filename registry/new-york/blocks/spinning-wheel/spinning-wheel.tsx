@@ -1,7 +1,8 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { useState, useRef } from "react";
+
+import { Button } from "@/registry/new-york/components/button";
 
 export type Reward =
   | {

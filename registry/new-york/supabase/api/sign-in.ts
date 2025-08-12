@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { signInSchema } from "@/components/supabase/sign-in-form";
-import { createClient } from "@/utils/supabase/server";
+import { signInSchema } from "@/registry/new-york/supabase/components/sign-in-form";
+import { createClient } from "@/registry/new-york/supabase/lib/server";
 
 export async function POST(request: NextRequest) {
   const body = request.json();

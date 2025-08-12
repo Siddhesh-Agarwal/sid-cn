@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { signUpSchema } from "@/components/supabase/sign-up-form";
-import { createClient } from "@/utils/supabase/server";
+
+import { signUpSchema } from "@/registry/new-york/supabase/components/sign-up-form";
+import { createClient } from "@/registry/new-york/supabase/lib/server";
 
 export async function POST(request: NextRequest) {
   const body = await request.json();

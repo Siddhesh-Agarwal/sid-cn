@@ -1,10 +1,11 @@
 "use client";
 
-import React from "react";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import { Bold, Italic, List, ListOrdered, Link } from "lucide-react";
 import { marked } from "marked";
+import React from "react";
+
+import { Button } from "@/registry/new-york/components/button";
+import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 
 export interface MarkdownEditorProps {
