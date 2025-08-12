@@ -1,8 +1,6 @@
 "use client";
 
-import type React from "react";
-
-import { useState, useRef, useCallback } from "react";
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Bold, Italic, List, ListOrdered, Link } from "lucide-react";
@@ -18,10 +16,11 @@ export function MarkdownEditor({
   initialValue = "",
   onChange,
 }: MarkdownEditorProps) {
-  const [markdown, setMarkdown] = useState(initialValue);
-  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const [markdown, setMarkdown] = React.useState(initialValue);
+  const [parsedHtml, setParsedHtml] = React.useState<string>("");
+  const textareaRef = React.useRef<HTMLTextAreaElement>(null);
 
-  const handleMarkdownChange = useCallback(
+  const handleMarkdownChange = React.useCallback(
     (value: string) => {
       setMarkdown(value);
       onChange?.(value);
@@ -29,19 +28,23 @@ export function MarkdownEditor({
     [onChange]
   );
 
-  const parseMarkdown = useCallback((text: string): string => {
-    try {
-      return marked(text, {
-        breaks: true,
-        gfm: true,
-      });
-    } catch (error) {
-      console.error("Error parsing markdown:", error);
-      return text;
-    }
-  }, []);
+  const parseMarkdown = React.useCallback(
+    async (text: string): Promise<string> => {
+      try {
+        const result = await marked(text, {
+          breaks: true,
+          gfm: true,
+        });
+        return result;
+      } catch (error) {
+        console.error("Error parsing markdown:", error);
+        return text;
+      }
+    },
+    []
+  );
 
-  const insertMarkdown = useCallback(
+  const insertMarkdown = React.useCallback(
     (before: string, after = "", placeholder = "") => {
       const textarea = textareaRef.current;
       if (!textarea) return;
@@ -143,7 +146,7 @@ export function MarkdownEditor({
     [handleMarkdownChange]
   );
 
-  const insertAtLineStart = useCallback(
+  const insertAtLineStart = React.useCallback(
     (prefix: string) => {
       const textarea = textareaRef.current;
       if (!textarea) return;
@@ -297,7 +300,7 @@ export function MarkdownEditor({
     }, 0);
   };
 
-  const handleKeyDown = useCallback(
+  const handleKeyDown = React.useCallback(
     (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
       const isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
       const ctrlKey = isMac ? e.metaKey : e.ctrlKey;
@@ -364,6 +367,18 @@ export function MarkdownEditor({
     },
     [handleMarkdownChange]
   );
+
+  React.useEffect(() => {
+    const updatePreview = async () => {
+      if (markdown) {
+        const parsedHtml = await parseMarkdown(markdown);
+        setParsedHtml(parsedHtml);
+      } else {
+        setParsedHtml("");
+      }
+    };
+    updatePreview();
+  }, [markdown, parseMarkdown]);
 
   return (
     <div className="w-full max-w-6xl mx-auto p-4">
@@ -472,7 +487,7 @@ export function MarkdownEditor({
                 {markdown ? (
                   <div
                     dangerouslySetInnerHTML={{
-                      __html: parseMarkdown(markdown),
+                      __html: parsedHtml,
                     }}
                   />
                 ) : (
