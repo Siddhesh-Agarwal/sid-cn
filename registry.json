@@ -199,6 +199,7 @@
       ],
       "dependencies": [
         "@supabase/ssr",
+        "@supabase/supabase-js",
         "lucide-react"
       ],
       "envVars": {
