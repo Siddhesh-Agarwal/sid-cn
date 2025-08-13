@@ -101,12 +101,12 @@ export function SignInButton({
           <DialogDescription>Log in to your account.</DialogDescription>
         </DialogHeader>
         <SignInForm redirect={redirect} />
-        <DialogFooter>
+        <div className="w-full flex justify-center">
           Don't have an account?
-          <Link href="/auth/sign-up">
-            <Button variant={"link"}>Sign up</Button>
+          <Link href="/auth/sign-up" className="ml-1 hover:underline">
+            Sign up
           </Link>
-        </DialogFooter>
+        </div>
       </DialogContent>
     </Dialog>
   );
@@ -131,12 +131,12 @@ export function SignUpButton({
           <DialogDescription>Create a new account.</DialogDescription>
         </DialogHeader>
         <SignUpForm />
-        <DialogFooter>
+        <div className="w-full flex justify-center">
           Already have an account?
-          <Link href="/auth/sign-in">
-            <Button variant={"link"}>Sign in</Button>
+          <Link href="/auth/sign-in" className="ml-1 hover:underline">
+            Sign in
           </Link>
-        </DialogFooter>
+        </div>
       </DialogContent>
     </Dialog>
   );

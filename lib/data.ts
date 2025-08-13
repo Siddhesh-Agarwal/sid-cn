@@ -35,4 +35,8 @@ export const blockPages: PageType[] = [
     name: "Spinning Wheel",
     path: "/blocks/spinning-wheel",
   },
+  {
+    name: "Supabase Auth",
+    path: "/blocks/supabase-auth",
+  },
 ];
