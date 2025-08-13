@@ -11,13 +11,23 @@ export async function POST(request: NextRequest) {
       { status: 400 }
     );
   }
-  const supabase = await createClient();
-  const { error, data } = await supabase.auth.signInWithPassword({
-    email: parsedBody.data.email,
-    password: parsedBody.data.password,
-  });
-  if (error) {
-    return NextResponse.json({ error: error.message }, { status: 400 });
+  try {
+    const supabase = await createClient();
+    if (!supabase) {
+      throw new Error("Supabase client not found");
+    }
+    const { error, data } = await supabase.auth.signInWithPassword({
+      email: parsedBody.data.email,
+      password: parsedBody.data.password,
+    });
+    if (error) {
+      return NextResponse.json({ error: error.message }, { status: 400 });
+    }
+    return NextResponse.json({ data }, { status: 200 });
+  } catch {
+    return NextResponse.json(
+      { error: "Something went wrong" },
+      { status: 400 }
+    );
   }
-  return NextResponse.json({ data }, { status: 200 });
 }

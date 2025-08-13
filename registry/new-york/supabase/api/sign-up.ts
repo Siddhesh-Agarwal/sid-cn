@@ -18,19 +18,29 @@ export async function POST(request: NextRequest) {
       { status: 400 }
     );
   }
-  const supabase = await createClient();
-  const { error, data } = await supabase.auth.signUp({
-    email: parsedBody.data.email,
-    password: parsedBody.data.password,
-    options: {
-      data: {
-        firstName: parsedBody.data.firstName,
-        lastName: parsedBody.data.lastName,
+  try {
+    const supabase = await createClient();
+    if (!supabase) {
+      throw new Error("Supabase client not found");
+    }
+    const { error, data } = await supabase.auth.signUp({
+      email: parsedBody.data.email,
+      password: parsedBody.data.password,
+      options: {
+        data: {
+          firstName: parsedBody.data.firstName,
+          lastName: parsedBody.data.lastName,
+        },
       },
-    },
-  });
-  if (error) {
-    return NextResponse.json({ error: error.message }, { status: 400 });
+    });
+    if (error) {
+      return NextResponse.json({ error: error.message }, { status: 400 });
+    }
+    return NextResponse.json({ data }, { status: 200 });
+  } catch {
+    return NextResponse.json(
+      { error: "Something went wrong" },
+      { status: 400 }
+    );
   }
-  return NextResponse.json({ data }, { status: 200 });
 }

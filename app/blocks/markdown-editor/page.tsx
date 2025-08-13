@@ -1,3 +1,5 @@
+"use client";
+
 import { CodeBlock } from "@/components/code-block";
 import InstallButton from "@/components/install-button";
 import { Separator } from "@/components/ui/separator";

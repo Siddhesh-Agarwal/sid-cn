@@ -192,7 +192,7 @@
       "registryDependencies": [
         "https://sid-cn.vercel.app/r/button.json",
         "dialog",
-        "dropdown",
+        "dropdown-menu",
         "form",
         "input",
         "tabs"
