@@ -14,7 +14,10 @@ export function CodeBlock({ text }: { text: string }) {
         <Clipboard />
         <span className="sr-only">Copy</span>
       </Button>
-      <code className="relative font-mono text-sm leading-none whitespace-preline">
+      <code
+        className="relative font-mono text-sm leading-none whitespace-preline"
+        data-language="tsx"
+      >
         {cleanText}
       </code>
     </pre>

@@ -1,11 +1,9 @@
 "use client";
 
-import { Button } from "@/registry/new-york/components/button";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
