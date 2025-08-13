@@ -1,6 +1,8 @@
 "use client";
 
+import { CodeBlock } from "@/components/code-block";
 import InstallButton from "@/components/install-button";
+import { Separator } from "@/components/ui/separator";
 import { SpinningWheel } from "@/registry/new-york/blocks/spinning-wheel/spinning-wheel";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
@@ -22,14 +24,42 @@ export default function Page() {
           A lottery-like spinning wheel component
         </h4>
       </div>
-      <div className="flex items-center justify-center min-h-[400px] border rounded-md p-4">
-        <SpinningWheel
-          rewardDetails={[{ reward: "Yes!" }, { reward: "No!" }]}
-          setReward={setReward}
+      <section id="example">
+        <div className="flex items-center justify-center min-h-[400px] border rounded-md p-4">
+          <SpinningWheel
+            rewardDetails={[{ reward: "Yes!" }, { reward: "No!" }]}
+            setReward={setReward}
+          />
+        </div>
+      </section>
+
+      <Separator />
+
+      <section id="installation">
+        <h2 className="text-xl font-semibold">Installation</h2>
+        <InstallButton componentCode="spinning-wheel" />
+      </section>
+
+      <Separator />
+
+      <section id="usage">
+        <h2 className="text-xl font-semibold">Usage</h2>
+        <CodeBlock
+          text={`import { type Reward, SpinningWheel } from "@/components/spinning-wheel"`}
         />
-      </div>
-      <h2 className="text-xl font-semibold">Install</h2>
-      <InstallButton componentCode="spinning-wheel" />
+        <CodeBlock
+          text={`
+const [reward, setReward] = useState<string | null>(null);
+const rewards: Reward[] = [
+  { reward: "Yes!" },
+  { reward: "No!" },
+];
+        `}
+        />
+        <CodeBlock
+          text={`<SpinningWheel rewardDetails={rewards} setReward={setReward} />`}
+        />
+      </section>
     </div>
   );
 }
