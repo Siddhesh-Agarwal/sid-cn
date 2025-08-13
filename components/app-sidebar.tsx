@@ -40,8 +40,8 @@ export default function AppSidebar({
             </Link>
             <SidebarGroupContent>
               {componentPages.map((page) => (
-                <Link href={page.path} key={page.name}>
-                  <SidebarMenuItem>
+                <Link href={page.path} key={page.name} passHref>
+                  <SidebarMenuItem className="hover:cursor-pointer">
                     <SidebarMenuButton>{page.name}</SidebarMenuButton>
                   </SidebarMenuItem>
                 </Link>
@@ -54,8 +54,8 @@ export default function AppSidebar({
             </Link>
             <SidebarGroupContent>
               {blockPages.map((page) => (
-                <Link href={page.path} key={page.name}>
-                  <SidebarMenuItem>
+                <Link href={page.path} key={page.name} passHref>
+                  <SidebarMenuItem className="hover:cursor-pointer">
                     <SidebarMenuButton>{page.name}</SidebarMenuButton>
                   </SidebarMenuItem>
                 </Link>

@@ -1,6 +1,8 @@
 "use client";
 
+import { CodeBlock } from "@/components/code-block";
 import InstallButton from "@/components/install-button";
+import { Separator } from "@/components/ui/separator";
 import {
   DataTable,
   DataTableColumnHeader,
@@ -196,11 +198,52 @@ export default function Page() {
           A highly customizable data table component
         </h4>
       </div>
-      <div className="flex items-center justify-center min-h-[400px] border rounded-md p-4">
-        <DataTable columns={columns} data={tableData} />
-      </div>
-      <h2 className="text-xl font-semibold">Install</h2>
-      <InstallButton componentCode="data-table" />
+      <section id="example">
+        <div className="flex items-center justify-center min-h-[400px] border rounded-md p-4">
+          <DataTable columns={columns} data={tableData} />
+        </div>
+      </section>
+
+      <Separator />
+
+      <section id="installation" className="py-4">
+        <h2 className="text-xl font-semibold">Installation</h2>
+        <InstallButton componentCode="data-table" />
+      </section>
+
+      <Separator />
+
+      <section id="usage" className="py-4">
+        <h2 className="text-xl font-semibold">Usage</h2>
+        <CodeBlock
+          text={`import { DataTable } from "@/components/ui/data-table"`}
+        />
+        <CodeBlock
+          text={`
+const columns: ColumnDef<Userinfo>[] = [
+  {
+    accessorKey: "name",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Name" />
+    ),
+  },
+  {
+    accessorKey: "email",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Email" />
+    ),
+  },
+  {
+    accessorKey: "age",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Age" />
+    ),
+  },
+];`}
+        />
+
+        <CodeBlock text={`<DataTable columns={columns} data={data} />`} />
+      </section>
     </div>
   );
 }

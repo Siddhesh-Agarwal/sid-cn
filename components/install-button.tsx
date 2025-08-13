@@ -30,12 +30,13 @@ export default function InstallButton({
 }: {
   componentCode: string;
 }) {
-  if (typeof window === "undefined") {
-    return null;
+  const base_url = process.env.NEXT_PUBLIC_BASE_URL;
+  if (!base_url) {
+    throw new Error("NEXT_PUBLIC_BASE_URL is not defined");
   }
   const [packageManager, setPackageManager] =
     React.useState<PackageManager>("npm");
-  const downloadUrl = `${window.location.protocol}//${window.location.host}/r/${componentCode}.json`;
+  const downloadUrl = `${base_url}/r/${componentCode}.json`;
 
   const commands = {
     npm: `npx shadcn@latest add ${downloadUrl}`,
@@ -45,7 +46,7 @@ export default function InstallButton({
   };
 
   return (
-    <div className="overflow-x-auto relative max-w-xl border rounded-md">
+    <div className="overflow-x-auto relative w-full border rounded-md">
       <Tabs
         value={packageManager}
         onValueChange={(val) => setPackageManager(val as PackageManager)}

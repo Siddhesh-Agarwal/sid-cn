@@ -1,5 +1,9 @@
+"use client";
+
+import { CodeBlock } from "@/components/code-block";
 import InstallButton from "@/components/install-button";
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 
 export default function Page() {
   const variants = ["success", "warning", "subtle", "glass"];
@@ -13,24 +17,45 @@ export default function Page() {
           A beautiful button component
         </h4>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 items-center min-h-[200px] gap-4 border rounded-md p-4">
-        {shapes
-          .map((shape) =>
-            variants.map((variant) => (
-              <Button
-                key={`${variant}-${shape}`}
-                variant={variant as any}
-                shape={shape as any}
-              >
-                {variant}-{shape}
-              </Button>
-            ))
-          )
-          .flat()}
-      </div>
+      <section id="example">
+        <div className="grid grid-cols-2 md:grid-cols-4 items-center min-h-[200px] gap-4 border rounded-md p-4">
+          {shapes
+            .map((shape) =>
+              variants.map((variant) => (
+                <Button
+                  key={`${variant}-${shape}`}
+                  variant={variant as any}
+                  shape={shape as any}
+                >
+                  {variant}-{shape}
+                </Button>
+              ))
+            )
+            .flat()}
+        </div>
+      </section>
 
-      <h2 className="text-xl font-semibold">Install</h2>
-      <InstallButton componentCode="button" />
+      <Separator />
+
+      <section id="installation" className="py-4">
+        <h2 className="text-xl font-semibold">Installation</h2>
+        <InstallButton componentCode="button" />
+      </section>
+
+      <Separator />
+
+      <section id="usage" className="py-4">
+        <h2 className="text-xl font-semibold">Usage</h2>
+        <CodeBlock text={`import { Button } from "@/components/ui/button"`} />
+        <CodeBlock
+          text={`<Button
+  variant="default | success | warning| destructive | subtle | glass | link | outline | secondary | ghost"
+  shape="default | pill | square"
+>
+  Button
+</Button>`}
+        />
+      </section>
     </div>
   );
 }
