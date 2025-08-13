@@ -85,7 +85,7 @@ export default function InstallButton({
         </div>
         <div className="no-scrollbar overflow-x-auto">
           {Object.entries(commands).map(([key, value]) => (
-            <TabsContent value={key} className="mt-0 px-4 py-3.5">
+            <TabsContent value={key} key={key} className="mt-0 px-4 py-3.5">
               <BashCommand command={value} />
             </TabsContent>
           ))}
