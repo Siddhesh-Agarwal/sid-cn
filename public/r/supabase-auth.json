@@ -6,6 +6,7 @@
   "description": "A complete working supabase auth setup",
   "dependencies": [
     "@supabase/ssr",
+    "@supabase/supabase-js",
     "lucide-react"
   ],
   "registryDependencies": [

@@ -5,19 +5,15 @@
   "items": [
     {
       "name": "button",
-      "type": "registry:component",
+      "type": "registry:ui",
       "title": "Button",
       "extends": "button",
       "description": "A beautiful button component",
-      "dependencies": [
-        "@radix-ui/react-slot",
-        "class-variance-authority"
-      ],
+      "dependencies": ["@radix-ui/react-slot", "class-variance-authority"],
       "files": [
         {
           "path": "registry/new-york/components/button.tsx",
-          "type": "registry:component",
-          "target": "~/components/ui/button.tsx"
+          "type": "registry:ui"
         },
         {
           "path": "registry/new-york/lib/utils.ts",
@@ -37,19 +33,15 @@
     },
     {
       "name": "badge",
-      "type": "registry:component",
+      "type": "registry:ui",
       "title": "Badge",
       "extends": "badge",
       "description": "A beautiful badge component",
-      "dependencies": [
-        "@radix-ui/react-slot",
-        "class-variance-authority"
-      ],
+      "dependencies": ["@radix-ui/react-slot", "class-variance-authority"],
       "files": [
         {
           "path": "registry/new-york/components/badge.tsx",
-          "type": "registry:component",
-          "target": "~/components/ui/badge.tsx"
+          "type": "registry:ui"
         },
         {
           "path": "registry/new-york/lib/utils.ts",
@@ -79,21 +71,17 @@
         "table",
         "select"
       ],
-      "dependencies": [
-        "lucide-react",
-        "@tanstack/react-table"
-      ],
+      "dependencies": ["lucide-react", "@tanstack/react-table"],
       "files": [
         {
           "path": "registry/new-york/components/data-table.tsx",
-          "type": "registry:component",
-          "target": "~/components/ui/data-table.tsx"
+          "type": "registry:component"
         }
       ]
     },
     {
       "name": "date-input",
-      "type": "registry:component",
+      "type": "registry:ui",
       "title": "Date Input",
       "description": "A beautiful date input component",
       "registryDependencies": [
@@ -102,26 +90,20 @@
         "input",
         "popover"
       ],
-      "dependencies": [
-        "lucide-react"
-      ],
+      "dependencies": ["lucide-react"],
       "files": [
         {
           "path": "registry/new-york/components/date-input.tsx",
-          "type": "registry:component",
-          "target": "~/components/ui/date-input.tsx"
+          "type": "registry:ui"
         }
       ]
     },
     {
       "name": "date-time-input",
-      "type": "registry:component",
+      "type": "registry:ui",
       "title": "Date Time Input",
       "description": "A beautiful date time input component (form compatible)",
-      "dependencies": [
-        "date-fns",
-        "lucide-react"
-      ],
+      "dependencies": ["date-fns", "lucide-react"],
       "registryDependencies": [
         "https://sid-cn.vercel.app/r/button.json",
         "calendar",
@@ -131,8 +113,7 @@
       "files": [
         {
           "path": "registry/new-york/components/date-time-input.tsx",
-          "type": "registry:component",
-          "target": "~/components/ui/date-time-input.tsx"
+          "type": "registry:ui"
         }
       ]
     },
@@ -158,10 +139,7 @@
         "separator",
         "textarea"
       ],
-      "dependencies": [
-        "lucide-react",
-        "marked"
-      ],
+      "dependencies": ["lucide-react", "marked"],
       "files": [
         {
           "path": "registry/new-york/blocks/markdown-editor/markdown-editor.tsx",
@@ -174,9 +152,7 @@
       "type": "registry:component",
       "title": "Spinning Wheel",
       "description": "A lottery-like spinning wheel component",
-      "registryDependencies": [
-        "https://sid-cn.vercel.app/r/button.json"
-      ],
+      "registryDependencies": ["https://sid-cn.vercel.app/r/button.json"],
       "files": [
         {
           "path": "registry/new-york/blocks/spinning-wheel/spinning-wheel.tsx",
@@ -269,12 +245,8 @@
       "type": "registry:component",
       "title": "Theme Toggle",
       "description": "A beautiful theme toggle component",
-      "registryDependencies": [
-        "https://sid-cn.vercel.app/r/button.json"
-      ],
-      "dependencies": [
-        "lucide-react"
-      ],
+      "registryDependencies": ["https://sid-cn.vercel.app/r/button.json"],
+      "dependencies": ["lucide-react"],
       "files": [
         {
           "path": "registry/new-york/components/theme-toggle.tsx",
