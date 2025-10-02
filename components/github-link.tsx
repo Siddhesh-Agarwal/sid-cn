@@ -1,7 +1,6 @@
 import Link from "next/link";
-
-import { Icons } from "@/registry/new-york/components/icons";
 import { Button } from "@/registry/new-york/components/button";
+import { Icons } from "@/registry/new-york/components/icons";
 
 export function GitHubLink() {
   const { username, repo } = { username: "Siddhesh-Agarwal", repo: "sid-cn" };
@@ -19,6 +18,16 @@ export function GitHubLink() {
   );
 }
 
+async function getStarsCount(
+  username: string,
+  repo: string,
+): Promise<{ stargazers_count: number }> {
+  const data = await fetch(`https://api.github.com/repos/${username}/${repo}`, {
+    next: { revalidate: 86400 }, // Cache for 1 day (86400 seconds)
+  });
+  return data.json();
+}
+
 export async function StarsCount({
   username,
   repo,
@@ -26,10 +35,7 @@ export async function StarsCount({
   username: string;
   repo: string;
 }) {
-  const data = await fetch(`https://api.github.com/repos/${username}/${repo}`, {
-    next: { revalidate: 86400 }, // Cache for 1 day (86400 seconds)
-  });
-  const json = await data.json();
+  const json = await getStarsCount(username, repo);
 
   return (
     <span className="text-muted-foreground text-xs tabular-nums">

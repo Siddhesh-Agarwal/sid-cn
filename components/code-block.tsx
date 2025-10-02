@@ -1,25 +1,35 @@
-import { Clipboard } from "lucide-react";
+import { useTheme } from "next-themes";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import {
+  oneDark,
+  oneLight,
+} from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { Button } from "./ui/button";
+import { Clipboard } from "lucide-react";
 
 export function CodeBlock({ text }: { text: string }) {
   const cleanText = text.trim();
+  const highlightStyle = useTheme().theme === "dark" ? oneDark : oneLight;
+
   return (
-    <pre className="overflow-x-auto border rounded-md p-2 mt-2 relative bg-card">
+    <div className="relative">
       <Button
         size="icon"
-        variant="subtle"
+        variant="outline"
         className="absolute top-2 right-2 z-10 size-7 opacity-70 hover:opacity-100 focus-visible:opacity-100 border"
         onClick={() => navigator.clipboard.writeText(cleanText)}
       >
         <Clipboard />
         <span className="sr-only">Copy</span>
       </Button>
-      <code
-        className="relative font-mono text-sm leading-none whitespace-preline"
-        data-language="tsx"
+      <SyntaxHighlighter
+        language="javascript"
+        className="overflow-x-auto border rounded-md"
+        style={highlightStyle}
+        wrapLongLines={false}
       >
         {cleanText}
-      </code>
-    </pre>
+      </SyntaxHighlighter>
+    </div>
   );
 }
