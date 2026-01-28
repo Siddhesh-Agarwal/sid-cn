@@ -1,11 +1,8 @@
 "use client";
 
-import React from "react";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
-
-import { cn } from "@/lib/utils";
-import { Button } from "@/registry/new-york/components/button";
+import React from "react";
 import { Calendar } from "@/components/ui/calendar";
 import { Input } from "@/components/ui/input";
 import {
@@ -13,6 +10,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { cn } from "@/lib/utils";
+import { Button } from "@/registry/new-york/components/button";
 
 interface DateTimeInputProps {
   value?: Date;
