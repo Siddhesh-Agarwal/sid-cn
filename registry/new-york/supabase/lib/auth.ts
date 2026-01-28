@@ -15,18 +15,25 @@ export function useAuth() {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const supabase = createClient();
-  if (!supabase) {
-    throw new Error("Supabase client not found");
-  }
 
   useEffect(() => {
+    if (!supabase) {
+      setLoading(false);
+      return;
+    }
+
     // Get initial session
     const getSession = async () => {
-      const {
-        data: { session },
-      } = await supabase.auth.getSession();
-      setUser(session?.user ?? null);
-      setLoading(false);
+      try {
+        const {
+          data: { session },
+        } = await supabase.auth.getSession();
+        setUser(session?.user ?? null);
+      } catch (e) {
+        console.error(e);
+      } finally {
+        setLoading(false);
+      }
     };
 
     getSession();
@@ -42,19 +49,23 @@ export function useAuth() {
     return () => subscription.unsubscribe();
   }, [supabase]);
 
-  try {
-    if (!supabase) {
-      throw new Error("Supabase client not found");
-    }
-    if (!user) {
-      throw new Error("User not found");
-    }
-    return { user, loading, error: null };
-  } catch (error) {
+  if (!supabase) {
     return {
       user: null,
       loading: false,
-      error: error instanceof Error ? error.message : String(error),
+      error: "Supabase client not found (check env vars)",
     };
   }
+
+  // Mimic original behavior: if no user, return error "User not found" so consumers know?
+  // Or just return user: null.
+  // The original code threw "User not found" which was caught and returned as error.
+  // I will just return user and loading status.
+  // If the consumer needs to handle "not logged in", they check !user.
+  // However, specifically for the previous behavior compatibility:
+  if (!loading && !user) {
+     return { user: null, loading: false, error: "User not found" };
+  }
+
+  return { user, loading, error: null };
 }

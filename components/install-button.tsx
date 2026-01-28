@@ -1,7 +1,7 @@
 "use client";
 
 import { Check, Clipboard, Terminal } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/registry/new-york/components/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { Tooltip, TooltipTrigger } from "./ui/tooltip";
@@ -26,12 +26,19 @@ export default function InstallButton({
 }: {
   componentCode: string;
 }) {
-  if (window === undefined) {
-    throw new Error("window is not defined");
-  }
-  const base_url = window.location.origin;
+  const [baseUrl, setBaseUrl] = useState<string | null>(null);
   const [packageManager, setPackageManager] = useState<PackageManager>("npm");
   const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    setBaseUrl(window.location.origin);
+  }, []);
+
+  if (!baseUrl) {
+    return null;
+  }
+
+  const base_url = baseUrl;
 
   const copyCommand = (command: string) => {
     navigator.clipboard.writeText(command);
