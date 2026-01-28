@@ -11,7 +11,7 @@ export default function Page() {
   const sizes = ["sm", "default", "lg"];
 
   return (
-    <div className="flex flex-col gap-4 p-4 min-h-[450px]">
+    <div className="flex flex-col gap-4 p-4 min-h-full">
       <div className="flex flex-col">
         <h3 className="text-xl font-semibold">Badge</h3>
         <h4 className="text-sm text-muted-foreground">
@@ -19,7 +19,7 @@ export default function Page() {
         </h4>
       </div>
       <section id="example">
-        <div className="grid grid-cols-2 md:grid-cols-4 items-center min-h-[200px] gap-4 border rounded-md p-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 items-center min-h-50 gap-4 border rounded-md p-4">
           {sizes
             .map((size) =>
               shapes

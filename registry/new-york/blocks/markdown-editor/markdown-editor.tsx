@@ -1,12 +1,11 @@
 "use client";
 
-import { Bold, Italic, List, ListOrdered, Link } from "lucide-react";
+import { Bold, Italic, Link, List, ListOrdered } from "lucide-react";
 import { marked } from "marked";
 import React from "react";
-
-import { Button } from "@/registry/new-york/components/button";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/registry/new-york/components/button";
 
 export interface MarkdownEditorProps {
   initialValue?: string;
@@ -198,79 +197,97 @@ export function MarkdownEditor({
     [handleMarkdownChange],
   );
 
-  const formatBold = () => insertMarkdown("**", "**", "bold text");
-  const formatItalic = () => insertMarkdown("*", "*", "italic text");
-  const formatLink = () => insertMarkdown("[", "](url)", "link text");
-  const formatUnorderedList = () => insertAtLineStart("- ");
-  const formatOrderedList = () => insertAtLineStart("1. ");
+  const formatBold = React.useCallback(
+    () => insertMarkdown("**", "**", "bold text"),
+    [insertMarkdown],
+  );
+  const formatItalic = React.useCallback(
+    () => insertMarkdown("*", "*", "italic text"),
+    [insertMarkdown],
+  );
+  const formatLink = React.useCallback(
+    () => insertMarkdown("[", "](url)", "link text"),
+    [insertMarkdown],
+  );
+  const formatUnorderedList = React.useCallback(
+    () => insertAtLineStart("- "),
+    [insertAtLineStart],
+  );
+  const formatOrderedList = React.useCallback(
+    () => insertAtLineStart("1. "),
+    [insertAtLineStart],
+  );
 
-  const formatHeading = (level: number) => {
-    const textarea = textareaRef.current;
-    if (!textarea) return;
+  const formatHeading = React.useCallback(
+    (level: number) => {
+      const textarea = textareaRef.current;
+      if (!textarea) return;
 
-    const start = textarea.selectionStart;
-    const value = textarea.value;
+      const start = textarea.selectionStart;
+      const value = textarea.value;
 
-    // Find the start of the current line
-    const lineStart = value.lastIndexOf("\n", start - 1) + 1;
-    const lineEnd = value.indexOf("\n", start);
-    const currentLine = value.substring(
-      lineStart,
-      lineEnd === -1 ? value.length : lineEnd,
-    );
+      // Find the start of the current line
+      const lineStart = value.lastIndexOf("\n", start - 1) + 1;
+      const lineEnd = value.indexOf("\n", start);
+      const currentLine = value.substring(
+        lineStart,
+        lineEnd === -1 ? value.length : lineEnd,
+      );
 
-    const headingPrefix = "#".repeat(level) + " ";
+      const headingPrefix = `${"#".repeat(level)} `;
 
-    // Check if line already has any heading
-    const existingHeadingMatch = currentLine.match(/^#+\s/);
+      // Check if line already has any heading
+      const existingHeadingMatch = currentLine.match(/^#+\s/);
 
-    if (existingHeadingMatch) {
-      // Replace existing heading or remove if same level
-      if (existingHeadingMatch[0] === headingPrefix) {
-        // Remove heading
+      if (existingHeadingMatch) {
+        // Replace existing heading or remove if same level
+        if (existingHeadingMatch[0] === headingPrefix) {
+          // Remove heading
+          const newText =
+            value.substring(0, lineStart) +
+            currentLine.substring(existingHeadingMatch[0].length) +
+            value.substring(lineEnd === -1 ? value.length : lineEnd);
+          handleMarkdownChange(newText);
+          setTimeout(() => {
+            textarea.focus();
+            textarea.setSelectionRange(
+              start - existingHeadingMatch[0].length,
+              start - existingHeadingMatch[0].length,
+            );
+          }, 0);
+        } else {
+          // Replace with new heading level
+          const newText =
+            value.substring(0, lineStart) +
+            headingPrefix +
+            currentLine.substring(existingHeadingMatch[0].length) +
+            value.substring(lineEnd === -1 ? value.length : lineEnd);
+          handleMarkdownChange(newText);
+          setTimeout(() => {
+            textarea.focus();
+            const diff = headingPrefix.length - existingHeadingMatch[0].length;
+            textarea.setSelectionRange(start + diff, start + diff);
+          }, 0);
+        }
+      } else {
+        // Add heading
         const newText =
           value.substring(0, lineStart) +
-          currentLine.substring(existingHeadingMatch[0].length) +
+          headingPrefix +
+          currentLine +
           value.substring(lineEnd === -1 ? value.length : lineEnd);
         handleMarkdownChange(newText);
         setTimeout(() => {
           textarea.focus();
           textarea.setSelectionRange(
-            start - existingHeadingMatch[0].length,
-            start - existingHeadingMatch[0].length,
+            start + headingPrefix.length,
+            start + headingPrefix.length,
           );
         }, 0);
-      } else {
-        // Replace with new heading level
-        const newText =
-          value.substring(0, lineStart) +
-          headingPrefix +
-          currentLine.substring(existingHeadingMatch[0].length) +
-          value.substring(lineEnd === -1 ? value.length : lineEnd);
-        handleMarkdownChange(newText);
-        setTimeout(() => {
-          textarea.focus();
-          const diff = headingPrefix.length - existingHeadingMatch[0].length;
-          textarea.setSelectionRange(start + diff, start + diff);
-        }, 0);
       }
-    } else {
-      // Add heading
-      const newText =
-        value.substring(0, lineStart) +
-        headingPrefix +
-        currentLine +
-        value.substring(lineEnd === -1 ? value.length : lineEnd);
-      handleMarkdownChange(newText);
-      setTimeout(() => {
-        textarea.focus();
-        textarea.setSelectionRange(
-          start + headingPrefix.length,
-          start + headingPrefix.length,
-        );
-      }, 0);
-    }
-  };
+    },
+    [handleMarkdownChange],
+  );
 
   const formatHorizontalRule = () => {
     const textarea = textareaRef.current;
@@ -303,7 +320,10 @@ export function MarkdownEditor({
 
   const handleKeyDown = React.useCallback(
     (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-      const isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+      const isMac =
+        (navigator as Navigator & { userAgentData?: { platform?: string } })
+          .userAgentData?.platform?.toLowerCase()
+          .includes("mac") ?? /mac|iphone|ipad|ipod/i.test(navigator.userAgent);
       const ctrlKey = isMac ? e.metaKey : e.ctrlKey;
 
       if (ctrlKey) {
@@ -366,7 +386,15 @@ export function MarkdownEditor({
         }, 0);
       }
     },
-    [handleMarkdownChange],
+    [
+      handleMarkdownChange,
+      formatHeading,
+      formatBold,
+      formatItalic,
+      formatLink,
+      formatUnorderedList,
+      formatOrderedList,
+    ],
   );
 
   React.useEffect(() => {

@@ -15,7 +15,7 @@ export default function Page() {
         </h4>
       </div>
       <section id="example">
-        <div className="flex items-center justify-center min-h-[400px] border rounded-md p-4">
+        <div className="flex items-center justify-center min-h-100 border rounded-md p-4">
           <MarkdownEditor />
         </div>
       </section>

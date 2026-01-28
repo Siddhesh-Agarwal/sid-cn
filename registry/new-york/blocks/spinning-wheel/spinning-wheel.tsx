@@ -25,7 +25,7 @@ export function SpinningWheel({
   rewardDetails: Reward[];
   disabled?: boolean;
   radius?: number;
-  setReward?: (reward: string | null) => void;
+  setReward?(reward: string | null): void;
 }) {
   // Seperate all the properties
   const rewards = rewardDetails.map((reward) => reward.reward);
