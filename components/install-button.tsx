@@ -1,8 +1,8 @@
 "use client";
 
-import { Button } from "@/registry/new-york/components/button";
 import { Check, Clipboard, Terminal } from "lucide-react";
 import { useState } from "react";
+import { Button } from "@/registry/new-york/components/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { Tooltip, TooltipTrigger } from "./ui/tooltip";
 
