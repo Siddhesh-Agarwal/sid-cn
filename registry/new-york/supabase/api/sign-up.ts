@@ -9,13 +9,13 @@ export async function POST(request: NextRequest) {
   if (!parsedBody.success) {
     return NextResponse.json(
       { error: parsedBody.error.message },
-      { status: 400 }
+      { status: 400 },
     );
   }
   if (parsedBody.data.password !== parsedBody.data.confirmPassword) {
     return NextResponse.json(
       { error: "Passwords do not match" },
-      { status: 400 }
+      { status: 400 },
     );
   }
   try {
@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
   } catch {
     return NextResponse.json(
       { error: "Something went wrong" },
-      { status: 400 }
+      { status: 400 },
     );
   }
 }

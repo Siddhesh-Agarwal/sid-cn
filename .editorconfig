@@ -2,9 +2,13 @@
 root = true
 charset = utf-8
 end_of_line = crlf
+indent_style = space
 
 [*.{tsx,ts}]
 indent_size = 2
-indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.json]
 insert_final_newline = true
 trim_trailing_whitespace = true

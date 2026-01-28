@@ -185,38 +185,31 @@
       "files": [
         {
           "type": "registry:component",
-          "path": "registry/new-york/supabase/components/auth.tsx",
-          "target": "~/components/supabase/auth.tsx"
+          "path": "registry/new-york/supabase/components/auth.tsx"
         },
         {
           "type": "registry:component",
-          "path": "registry/new-york/supabase/components/sign-in-form.tsx",
-          "target": "~/components/supabase/sign-in-form.tsx"
+          "path": "registry/new-york/supabase/components/sign-in-form.tsx"
         },
         {
           "type": "registry:component",
-          "path": "registry/new-york/supabase/components/sign-up-form.tsx",
-          "target": "~/components/supabase/sign-up-form.tsx"
+          "path": "registry/new-york/supabase/components/sign-up-form.tsx"
         },
         {
           "type": "registry:hook",
-          "path": "registry/new-york/supabase/lib/auth.ts",
-          "target": "~/lib/supabase/auth.ts"
+          "path": "registry/new-york/supabase/lib/auth.ts"
         },
         {
           "type": "registry:lib",
-          "path": "registry/new-york/supabase/lib/client.ts",
-          "target": "~/lib/supabase/client.ts"
+          "path": "registry/new-york/supabase/lib/client.ts"
         },
         {
           "type": "registry:lib",
-          "path": "registry/new-york/supabase/lib/middleware.ts",
-          "target": "~/lib/supabase/middleware.ts"
+          "path": "registry/new-york/supabase/lib/middleware.ts"
         },
         {
           "type": "registry:lib",
-          "path": "registry/new-york/supabase/lib/server.ts",
-          "target": "~/lib/supabase/server.ts"
+          "path": "registry/new-york/supabase/lib/server.ts"
         },
         {
           "type": "registry:page",
@@ -229,12 +222,12 @@
           "target": "~/app/auth/sign-up/page.tsx"
         },
         {
-          "type": "registry:file",
+          "type": "registry:page",
           "path": "registry/new-york/supabase/api/sign-in.ts",
           "target": "~/app/api/auth/sign-in/route.ts"
         },
         {
-          "type": "registry:file",
+          "type": "registry:page",
           "path": "registry/new-york/supabase/api/sign-up.ts",
           "target": "~/app/api/auth/sign-up/route.ts"
         }

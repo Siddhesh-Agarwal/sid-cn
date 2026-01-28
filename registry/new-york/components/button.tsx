@@ -45,7 +45,7 @@ const buttonVariants = cva(
       size: "default",
       shape: "default",
     },
-  }
+  },
 );
 
 function Button({

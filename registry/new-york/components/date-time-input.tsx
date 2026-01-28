@@ -31,7 +31,7 @@ export function DateTimeInput({
 }: DateTimeInputProps) {
   const [open, setOpen] = React.useState(false);
   const [selectedDate, setSelectedDate] = React.useState<Date | undefined>(
-    value
+    value,
   );
   const [timeValue, setTimeValue] = React.useState(() => {
     if (value) {
@@ -74,7 +74,7 @@ export function DateTimeInput({
               variant="outline"
               className={cn(
                 "flex-1 justify-start text-left font-normal",
-                !selectedDate && "text-muted-foreground"
+                !selectedDate && "text-muted-foreground",
               )}
               disabled={disabled}
             >

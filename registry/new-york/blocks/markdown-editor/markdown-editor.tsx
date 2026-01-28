@@ -26,7 +26,7 @@ export function MarkdownEditor({
       setMarkdown(value);
       onChange?.(value);
     },
-    [onChange]
+    [onChange],
   );
 
   const parseMarkdown = React.useCallback(
@@ -42,7 +42,7 @@ export function MarkdownEditor({
         return text;
       }
     },
-    []
+    [],
   );
 
   const insertMarkdown = React.useCallback(
@@ -75,7 +75,7 @@ export function MarkdownEditor({
           textarea.focus();
           textarea.setSelectionRange(
             beforeStart,
-            beforeStart + selectedText.length
+            beforeStart + selectedText.length,
           );
         }, 0);
       } else if (selectedText) {
@@ -91,7 +91,7 @@ export function MarkdownEditor({
           // Remove formatting from selected text
           const unformattedText = selectedText.substring(
             trimmedBefore.length,
-            selectedText.length - trimmedAfter.length
+            selectedText.length - trimmedAfter.length,
           );
           const newText =
             textarea.value.substring(0, start) +
@@ -119,7 +119,7 @@ export function MarkdownEditor({
             textarea.focus();
             textarea.setSelectionRange(
               start + before.length,
-              start + before.length + selectedText.length
+              start + before.length + selectedText.length,
             );
           }, 0);
         }
@@ -139,12 +139,12 @@ export function MarkdownEditor({
           textarea.focus();
           textarea.setSelectionRange(
             start + before.length,
-            start + before.length + textToInsert.length
+            start + before.length + textToInsert.length,
           );
         }, 0);
       }
     },
-    [handleMarkdownChange]
+    [handleMarkdownChange],
   );
 
   const insertAtLineStart = React.useCallback(
@@ -160,7 +160,7 @@ export function MarkdownEditor({
       const lineEnd = value.indexOf("\n", start);
       const currentLine = value.substring(
         lineStart,
-        lineEnd === -1 ? value.length : lineEnd
+        lineEnd === -1 ? value.length : lineEnd,
       );
 
       // Check if line already has the prefix
@@ -175,7 +175,7 @@ export function MarkdownEditor({
           textarea.focus();
           textarea.setSelectionRange(
             start - prefix.length,
-            start - prefix.length
+            start - prefix.length,
           );
         }, 0);
       } else {
@@ -190,12 +190,12 @@ export function MarkdownEditor({
           textarea.focus();
           textarea.setSelectionRange(
             start + prefix.length,
-            start + prefix.length
+            start + prefix.length,
           );
         }, 0);
       }
     },
-    [handleMarkdownChange]
+    [handleMarkdownChange],
   );
 
   const formatBold = () => insertMarkdown("**", "**", "bold text");
@@ -216,7 +216,7 @@ export function MarkdownEditor({
     const lineEnd = value.indexOf("\n", start);
     const currentLine = value.substring(
       lineStart,
-      lineEnd === -1 ? value.length : lineEnd
+      lineEnd === -1 ? value.length : lineEnd,
     );
 
     const headingPrefix = "#".repeat(level) + " ";
@@ -237,7 +237,7 @@ export function MarkdownEditor({
           textarea.focus();
           textarea.setSelectionRange(
             start - existingHeadingMatch[0].length,
-            start - existingHeadingMatch[0].length
+            start - existingHeadingMatch[0].length,
           );
         }, 0);
       } else {
@@ -266,7 +266,7 @@ export function MarkdownEditor({
         textarea.focus();
         textarea.setSelectionRange(
           start + headingPrefix.length,
-          start + headingPrefix.length
+          start + headingPrefix.length,
         );
       }, 0);
     }
@@ -366,7 +366,7 @@ export function MarkdownEditor({
         }, 0);
       }
     },
-    [handleMarkdownChange]
+    [handleMarkdownChange],
   );
 
   React.useEffect(() => {

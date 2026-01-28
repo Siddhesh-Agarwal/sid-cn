@@ -35,9 +35,9 @@ export default function Page() {
                         {`${variant}-${shape}-${size}`}
                       </Badge>
                     ))
-                    .flat()
+                    .flat(),
                 )
-                .flat()
+                .flat(),
             )
             .flat()}
         </div>

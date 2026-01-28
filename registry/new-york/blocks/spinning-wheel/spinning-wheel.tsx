@@ -171,7 +171,7 @@ export function SpinningWheel({
 
   if (weights !== null && weights.length !== rewards.length) {
     throw new Error(
-      "`weights` should either be null or an array with same length as the `rewards`."
+      "`weights` should either be null or an array with same length as the `rewards`.",
     );
   }
 
