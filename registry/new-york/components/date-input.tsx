@@ -1,9 +1,7 @@
 "use client";
 
-import * as React from "react";
 import { CalendarIcon } from "lucide-react";
-
-import { Button } from "@/registry/new-york/components/button";
+import * as React from "react";
 import { Calendar } from "@/components/ui/calendar";
 import { Input } from "@/components/ui/input";
 import {
@@ -11,6 +9,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { Button } from "@/registry/new-york/components/button";
 
 function formatDate(date: Date | undefined) {
   if (!date) {
@@ -28,7 +27,7 @@ function isValidDate(date: Date | undefined) {
   if (!date) {
     return false;
   }
-  return !isNaN(date.getTime());
+  return !Number.isNaN(date.getTime());
 }
 
 export function DateInput({
@@ -36,7 +35,7 @@ export function DateInput({
   onChange,
 }: {
   value?: Date;
-  onChange?: (date: Date) => void;
+  onChange?(date: Date): void;
 }) {
   const [open, setOpen] = React.useState(false);
   const [date, setDate] = React.useState<Date | undefined>(value);
