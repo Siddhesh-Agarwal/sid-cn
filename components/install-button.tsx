@@ -1,10 +1,10 @@
 "use client";
 
-import { Clipboard, Terminal } from "lucide-react";
+import { Button } from "@/registry/new-york/components/button";
+import { Check, Clipboard, Terminal } from "lucide-react";
+import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { Tooltip, TooltipTrigger } from "./ui/tooltip";
-import { Button } from "@/registry/new-york/components/button";
-import React from "react";
 
 function BashCommand({ command }: { command: string }) {
   return (
@@ -19,10 +19,6 @@ function BashCommand({ command }: { command: string }) {
   );
 }
 
-function copyCommand(command: string) {
-  navigator.clipboard.writeText(command);
-}
-
 type PackageManager = "npm" | "yarn" | "pnpm" | "bun";
 
 export default function InstallButton({
@@ -30,12 +26,18 @@ export default function InstallButton({
 }: {
   componentCode: string;
 }) {
-  const base_url = process.env.NEXT_PUBLIC_BASE_URL;
-  if (!base_url) {
-    throw new Error("NEXT_PUBLIC_BASE_URL is not defined");
+  if (window === undefined) {
+    throw new Error("window is not defined");
   }
-  const [packageManager, setPackageManager] =
-    React.useState<PackageManager>("npm");
+  const base_url = window.location.origin;
+  const [packageManager, setPackageManager] = useState<PackageManager>("npm");
+  const [copied, setCopied] = useState(false);
+
+  const copyCommand = (command: string) => {
+    navigator.clipboard.writeText(command);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
   const downloadUrl = `${base_url}/r/${componentCode}.json`;
 
   const commands = {
@@ -101,7 +103,7 @@ export default function InstallButton({
             onClick={() => copyCommand(commands[packageManager])}
           >
             <span className="sr-only">Copy</span>
-            <Clipboard />
+            {copied ? <Check /> : <Clipboard />}
           </Button>
         </TooltipTrigger>
       </Tooltip>
