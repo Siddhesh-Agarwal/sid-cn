@@ -1,4 +1,8 @@
+import { blockPages, componentPages } from "@/lib/data";
+import { ThemeToggle } from "@/registry/new-york/components/theme-toggle";
 import { Square } from "lucide-react";
+import Link from "next/link";
+import { GitHubLink } from "./github-link";
 import {
   Sidebar,
   SidebarContent,
@@ -10,10 +14,6 @@ import {
   SidebarMenuItem,
   SidebarTrigger,
 } from "./ui/sidebar";
-import { ThemeToggle } from "@/registry/new-york/components/theme-toggle";
-import { blockPages, componentPages } from "@/lib/data";
-import Link from "next/link";
-import { GitHubLink } from "./github-link";
 
 export default function AppSidebar({
   children,
