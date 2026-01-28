@@ -1,3 +1,5 @@
+"use client";
+
 import { Check, Clipboard } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useState } from "react";
