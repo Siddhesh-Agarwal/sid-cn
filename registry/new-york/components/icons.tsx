@@ -2,6 +2,7 @@ import { FileIcon } from "lucide-react";
 
 type IconProps = React.HTMLAttributes<SVGElement>;
 
+// All these icons were copied from [SimpleIcons](https://simpleicons.org/)
 export const Icons = {
   twitter: (props: IconProps) => (
     <svg
