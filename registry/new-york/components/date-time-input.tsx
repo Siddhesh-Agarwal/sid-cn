@@ -21,7 +21,7 @@ interface DateTimeInputProps {
   className?: string;
 }
 
-export function DateTimeInput({
+function DateTimeInput({
   value,
   onChange,
   disabled = false,
@@ -115,3 +115,5 @@ export function DateTimeInput({
 }
 
 DateTimeInput.displayName = "DateTimeInput";
+
+export { DateTimeInput };

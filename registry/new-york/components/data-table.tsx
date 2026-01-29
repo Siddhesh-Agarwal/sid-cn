@@ -56,7 +56,7 @@ interface DataTableProps<TData, TValue> {
   data: TData[];
 }
 
-export function DataTable<TData, TValue>({
+function DataTable<TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
@@ -258,13 +258,17 @@ export function DataTable<TData, TValue>({
   );
 }
 
-interface DataTableColumnHeaderProps<TData, TValue>
-  extends React.HTMLAttributes<HTMLDivElement> {
+DataTable.displayName = "DataTable";
+
+interface DataTableColumnHeaderProps<
+  TData,
+  TValue,
+> extends React.HTMLAttributes<HTMLDivElement> {
   column: Column<TData, TValue>;
   title: string;
 }
 
-export function DataTableColumnHeader<TData, TValue>({
+function DataTableColumnHeader<TData, TValue>({
   column,
   title,
   className,
@@ -311,3 +315,7 @@ export function DataTableColumnHeader<TData, TValue>({
     </div>
   );
 }
+
+DataTableColumnHeader.displayName = "DataTableColumnHeader";
+
+export { DataTable, DataTableColumnHeader };

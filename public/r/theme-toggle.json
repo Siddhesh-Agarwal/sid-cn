@@ -13,7 +13,7 @@
   "files": [
     {
       "path": "registry/new-york/components/theme-toggle.tsx",
-      "content": "\"use client\";\r\n\r\nimport { Moon, Sun } from \"lucide-react\";\r\nimport { useTheme, ThemeProvider as NextThemesProvider } from \"next-themes\";\r\n\r\nimport { Button } from \"@/components/ui/button\";\r\n\r\nexport function ThemeProvider({ children }: { children: React.ReactNode }) {\r\n  return (\r\n    <NextThemesProvider\r\n      defaultTheme=\"system\"\r\n      attribute=\"class\"\r\n      enableSystem={true}\r\n    >\r\n      {children}\r\n    </NextThemesProvider>\r\n  );\r\n}\r\n\r\nexport function ThemeToggle() {\r\n  const { setTheme, theme } = useTheme();\r\n  return (\r\n    <Button\r\n      size={\"icon\"}\r\n      variant={\"ghost\"}\r\n      onClick={() => setTheme(theme === \"dark\" ? \"light\" : \"dark\")}\r\n    >\r\n      {theme === \"dark\" ? <Sun /> : <Moon />}\r\n    </Button>\r\n  );\r\n}\r\n",
+      "content": "\"use client\";\n\nimport { Moon, Sun } from \"lucide-react\";\nimport { useTheme, ThemeProvider as NextThemesProvider } from \"next-themes\";\n\nimport { Button } from \"@/components/ui/button\";\n\nexport function ThemeProvider({ children }: { children: React.ReactNode }) {\n  return (\n    <NextThemesProvider defaultTheme=\"system\" attribute=\"class\" enableSystem>\n      {children}\n    </NextThemesProvider>\n  );\n}\n\nexport function ThemeToggle() {\n  const { setTheme, resolvedTheme } = useTheme();\n  return (\n    <Button\n      size={\"icon\"}\n      variant={\"ghost\"}\n      onClick={() => setTheme(resolvedTheme === \"dark\" ? \"light\" : \"dark\")}\n    >\n      {resolvedTheme === \"dark\" ? <Sun /> : <Moon />}\n    </Button>\n  );\n}\n",
       "type": "registry:component"
     }
   ]

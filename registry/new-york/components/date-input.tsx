@@ -29,8 +29,7 @@ function isValidDate(date: Date | undefined) {
   }
   return !Number.isNaN(date.getTime());
 }
-
-export function DateInput({
+function DateInput({
   value,
   onChange,
 }: {
@@ -106,3 +105,5 @@ export function DateInput({
 }
 
 DateInput.displayName = "DateInput";
+
+export { DateInput };
