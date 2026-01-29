@@ -7,17 +7,15 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface DisplayPreviewAndCodeProps {
   children: React.ReactElement;
-  className?: string;
 }
 
 export function DisplayPreviewAndCode({
   children,
-  className,
 }: DisplayPreviewAndCodeProps) {
   const codeString = jsxToString(children);
 
   return (
-    <Tabs defaultValue="preview" className={className}>
+    <Tabs defaultValue="preview">
       <TabsList className="w-full justify-start">
         <TabsTrigger value="preview">Preview</TabsTrigger>
         <TabsTrigger value="code">Code</TabsTrigger>
