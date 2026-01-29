@@ -24,6 +24,10 @@ export const componentPages: PageType[] = [
     name: "Date Time Input",
     path: "/components/date-time-input",
   },
+  {
+    name: "Package Manager Command",
+    path: "/components/package-manager-command",
+  },
 ];
 
 export const blockPages: PageType[] = [

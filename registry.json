@@ -118,6 +118,19 @@
       ]
     },
     {
+      "name": "package-manager-command",
+      "type": "registry:ui",
+      "title": "Package Manager Command",
+      "description": "A beautiful package manager command component",
+      "registryDependencies": ["https://sid-cn.vercel.app/r/button.json"],
+      "files": [
+        {
+          "path": "registry/new-york/components/package-manager-command.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "icons",
       "type": "registry:item",
       "title": "Icons",
