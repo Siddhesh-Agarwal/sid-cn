@@ -4,20 +4,29 @@
   "homepage": "https://ui.siddhesh.cc/",
   "items": [
     {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "Utils",
+      "description": "Utility functions and types",
+      "files": [
+        {
+          "path": "registry/new-york/lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
       "name": "button",
       "type": "registry:ui",
       "title": "Button",
       "extends": "button",
       "description": "A beautiful button component",
       "dependencies": ["@radix-ui/react-slot", "class-variance-authority"],
+      "registryDependencies": ["https://ui.siddhesh.cc/r/utils.json"],
       "files": [
         {
           "path": "registry/new-york/components/button.tsx",
           "type": "registry:ui"
-        },
-        {
-          "path": "registry/new-york/lib/utils.ts",
-          "type": "registry:lib"
         }
       ],
       "cssVars": {
@@ -37,15 +46,15 @@
       "title": "Badge",
       "extends": "badge",
       "description": "A beautiful badge component",
-      "dependencies": ["@radix-ui/react-slot", "class-variance-authority"],
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "class-variance-authority",
+        "https://ui.siddhesh.cc/r/utils.json"
+      ],
       "files": [
         {
           "path": "registry/new-york/components/badge.tsx",
           "type": "registry:ui"
-        },
-        {
-          "path": "registry/new-york/lib/utils.ts",
-          "type": "registry:lib"
         }
       ],
       "cssVars": {

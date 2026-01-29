@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "utils",
+  "type": "registry:lib",
+  "title": "Utils",
+  "description": "Utility functions and types",
+  "files": [
+    {
+      "path": "registry/new-york/lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\";\nimport { twMerge } from \"tailwind-merge\";\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}\n\nexport function isMac() {\n  const navigator_ = navigator as Navigator & {\n    userAgentData?: { platform?: string };\n  };\n  const macRegex = /mac|iphone|ipad|ipod/i;\n\n  return (\n    navigator_.userAgentData?.platform?.toLowerCase().includes(\"mac\") ??\n    macRegex.test(navigator_.userAgent)\n  );\n}\n",
+      "type": "registry:lib"
+    }
+  ]
+}
