@@ -6,6 +6,7 @@ import React from "react";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/registry/new-york/components/button";
+import { isMac } from "@/registry/new-york/lib/utils";
 
 export interface MarkdownEditorProps {
   initialValue?: string;
@@ -320,13 +321,7 @@ export function MarkdownEditor({
 
   const handleKeyDown = React.useCallback(
     (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-      const isMac =
-        (
-          navigator as Navigator & { userAgentData?: { platform?: string } }
-        ).userAgentData?.platform
-          ?.toLowerCase()
-          .includes("mac") ?? /mac|iphone|ipad|ipod/i.test(navigator.userAgent);
-      const ctrlKey = isMac ? e.metaKey : e.ctrlKey;
+      const ctrlKey = isMac() ? e.metaKey : e.ctrlKey;
 
       if (ctrlKey) {
         switch (e.key.toLowerCase()) {
