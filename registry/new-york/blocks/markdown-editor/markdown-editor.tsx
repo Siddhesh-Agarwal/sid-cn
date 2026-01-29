@@ -495,7 +495,7 @@ export function MarkdownEditor({
         </div>
 
         {/* Editor and Preview */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[500px]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-125">
           {/* Editor */}
           <Textarea
             ref={textareaRef}
@@ -503,7 +503,7 @@ export function MarkdownEditor({
             onChange={(e) => handleMarkdownChange(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Start writing your markdown here..."
-            className="w-full h-full min-h-[500px] border-0 resize-none font-mono text-sm rounded-none"
+            className="w-full h-full min-h-125 border-0 resize-none font-mono text-sm rounded-none"
           />
 
           {/* Preview */}
