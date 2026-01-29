@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "Sidcn",
-  "homepage": "https://sid-cn.vercel.app/",
+  "name": "sidcn",
+  "homepage": "https://ui.siddhesh.cc/",
   "items": [
     {
       "name": "button",
@@ -65,7 +65,7 @@
       "title": "Data Table",
       "description": "A highly customizable data table component",
       "registryDependencies": [
-        "https://sid-cn.vercel.app/r/button.json",
+        "https://ui.siddhesh.cc/r/button.json",
         "dropdown-menu",
         "input",
         "table",
@@ -85,7 +85,7 @@
       "title": "Date Input",
       "description": "A beautiful date input component",
       "registryDependencies": [
-        "https://sid-cn.vercel.app/r/button.json",
+        "https://ui.siddhesh.cc/r/button.json",
         "calendar",
         "input",
         "popover"
@@ -105,7 +105,7 @@
       "description": "A beautiful date time input component (form compatible)",
       "dependencies": ["date-fns", "lucide-react"],
       "registryDependencies": [
-        "https://sid-cn.vercel.app/r/button.json",
+        "https://ui.siddhesh.cc/r/button.json",
         "calendar",
         "input",
         "popover"
@@ -122,7 +122,7 @@
       "type": "registry:ui",
       "title": "Package Manager Command",
       "description": "A beautiful package manager command component",
-      "registryDependencies": ["https://sid-cn.vercel.app/r/button.json"],
+      "registryDependencies": ["https://ui.siddhesh.cc/r/button.json"],
       "files": [
         {
           "path": "registry/new-york/components/package-manager-command.tsx",
@@ -148,7 +148,7 @@
       "title": "Markdown Editor",
       "description": "A beautiful markdown editor component",
       "registryDependencies": [
-        "https://sid-cn.vercel.app/r/button.json",
+        "https://ui.siddhesh.cc/r/button.json",
         "separator",
         "textarea"
       ],
@@ -165,7 +165,7 @@
       "type": "registry:component",
       "title": "Spinning Wheel",
       "description": "A lottery-like spinning wheel component",
-      "registryDependencies": ["https://sid-cn.vercel.app/r/button.json"],
+      "registryDependencies": ["https://ui.siddhesh.cc/r/button.json"],
       "files": [
         {
           "path": "registry/new-york/blocks/spinning-wheel/spinning-wheel.tsx",
@@ -179,7 +179,7 @@
       "title": "Supabase Auth",
       "description": "A complete working supabase auth setup",
       "registryDependencies": [
-        "https://sid-cn.vercel.app/r/button.json",
+        "https://ui.siddhesh.cc/r/button.json",
         "dialog",
         "dropdown-menu",
         "form",
@@ -251,7 +251,7 @@
       "type": "registry:component",
       "title": "Theme Toggle",
       "description": "A beautiful theme toggle component",
-      "registryDependencies": ["https://sid-cn.vercel.app/r/button.json"],
+      "registryDependencies": ["https://ui.siddhesh.cc/r/button.json"],
       "dependencies": ["lucide-react"],
       "files": [
         {

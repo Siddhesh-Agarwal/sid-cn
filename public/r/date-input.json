@@ -8,7 +8,7 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "https://sid-cn.vercel.app/r/button.json",
+    "https://ui.siddhesh.cc/r/button.json",
     "calendar",
     "input",
     "popover"

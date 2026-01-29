@@ -9,7 +9,7 @@
     "@tanstack/react-table"
   ],
   "registryDependencies": [
-    "https://sid-cn.vercel.app/r/button.json",
+    "https://ui.siddhesh.cc/r/button.json",
     "dropdown-menu",
     "input",
     "table",

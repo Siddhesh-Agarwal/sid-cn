@@ -5,7 +5,7 @@
   "title": "Package Manager Command",
   "description": "A beautiful package manager command component",
   "registryDependencies": [
-    "https://sid-cn.vercel.app/r/button.json"
+    "https://ui.siddhesh.cc/r/button.json"
   ],
   "files": [
     {
