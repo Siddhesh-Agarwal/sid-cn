@@ -64,7 +64,7 @@ export function useAuth() {
   // If the consumer needs to handle "not logged in", they check !user.
   // However, specifically for the previous behavior compatibility:
   if (!loading && !user) {
-     return { user: null, loading: false, error: "User not found" };
+    return { user: null, loading: false, error: "User not found" };
   }
 
   return { user, loading, error: null };

@@ -321,8 +321,10 @@ export function MarkdownEditor({
   const handleKeyDown = React.useCallback(
     (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
       const isMac =
-        (navigator as Navigator & { userAgentData?: { platform?: string } })
-          .userAgentData?.platform?.toLowerCase()
+        (
+          navigator as Navigator & { userAgentData?: { platform?: string } }
+        ).userAgentData?.platform
+          ?.toLowerCase()
           .includes("mac") ?? /mac|iphone|ipad|ipod/i.test(navigator.userAgent);
       const ctrlKey = isMac ? e.metaKey : e.ctrlKey;
 
