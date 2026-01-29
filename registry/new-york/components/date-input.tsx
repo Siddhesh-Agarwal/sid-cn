@@ -104,3 +104,5 @@ export function DateInput({
     </div>
   );
 }
+
+DateInput.displayName = "DateInput";
