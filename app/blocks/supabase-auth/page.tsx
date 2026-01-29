@@ -1,6 +1,7 @@
 "use client";
 
 import { CodeBlock } from "@/components/code-block";
+import { DisplayPreviewAndCode } from "@/components/display-preview-and-code";
 import InstallButton from "@/components/install-button";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -22,26 +23,28 @@ export default function Page() {
       </div>
 
       <section id="example">
-        <div className="flex items-center justify-center min-h-100 border rounded-md gap-4 p-4">
-          <SignInButton>
-            <Button size={"icon"} variant={"outline"} title="Sign in">
-              <LogIn />
-              <p className="sr-only">Sign in</p>
-            </Button>
-          </SignInButton>
-          <SignUpButton>
-            <Button size={"icon"} variant={"outline"} title="Sign up">
-              <LogIn />
-              <p className="sr-only">Sign up</p>
-            </Button>
-          </SignUpButton>
-          <UserButton>
-            <Button size={"icon"} variant={"outline"} title="User">
-              <User />
-              <p className="sr-only">User</p>
-            </Button>
-          </UserButton>
-        </div>
+        <DisplayPreviewAndCode>
+          <div className="flex gap-4">
+            <SignInButton>
+              <Button size={"icon"} variant={"outline"} title="Sign in">
+                <LogIn />
+                <p className="sr-only">Sign in</p>
+              </Button>
+            </SignInButton>
+            <SignUpButton>
+              <Button size={"icon"} variant={"outline"} title="Sign up">
+                <LogIn />
+                <p className="sr-only">Sign up</p>
+              </Button>
+            </SignUpButton>
+            <UserButton>
+              <Button size={"icon"} variant={"outline"} title="User">
+                <User />
+                <p className="sr-only">User</p>
+              </Button>
+            </UserButton>
+          </div>
+        </DisplayPreviewAndCode>
       </section>
 
       <Separator />

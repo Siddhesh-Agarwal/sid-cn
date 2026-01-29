@@ -1,13 +1,13 @@
 "use client";
 
 import { CodeBlock } from "@/components/code-block";
+import { DisplayPreviewAndCode } from "@/components/display-preview-and-code";
 import InstallButton from "@/components/install-button";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/registry/new-york/components/badge";
 
 export default function Page() {
   const variants = ["success", "warning", "glass", "link"];
-  const shapes = ["default", "pill"];
   const sizes = ["sm", "default", "lg"];
 
   return (
@@ -19,28 +19,21 @@ export default function Page() {
         </h4>
       </div>
       <section id="example">
-        <div className="grid grid-cols-2 md:grid-cols-4 items-center min-h-50 gap-4 border rounded-md p-4">
-          {sizes
-            .map((size) =>
-              shapes
-                .map((shape) =>
-                  variants
-                    .map((variant) => (
-                      <Badge
-                        variant={variant as any}
-                        shape={shape as any}
-                        size={size as any}
-                        key={`${variant}-${shape}-${size}`}
-                      >
-                        {`${variant}-${shape}-${size}`}
-                      </Badge>
-                    ))
-                    .flat(),
-                )
-                .flat(),
-            )
-            .flat()}
-        </div>
+        <DisplayPreviewAndCode>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {sizes.flatMap((size) =>
+              variants.flatMap((variant) => (
+                <Badge
+                  variant={variant as any}
+                  size={size as any}
+                  key={`${variant}-${size}`}
+                >
+                  {`${variant}-${size}`}
+                </Badge>
+              )),
+            )}
+          </div>
+        </DisplayPreviewAndCode>
       </section>
 
       <Separator />

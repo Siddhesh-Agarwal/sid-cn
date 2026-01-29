@@ -7,10 +7,10 @@ export default function LandingPage() {
   return (
     <section className="container mx-auto px-4 py-24 text-center min-h-full">
       <div className="flex items-center justify-center gap-2 mb-4">
-        <Badge variant="outline" shape={"pill"}>
+        <Badge variant="outline">
           Open Source
         </Badge>
-        <Badge variant="outline" shape={"pill"}>
+        <Badge variant="outline">
           shadcn/ui Compatible
         </Badge>
       </div>

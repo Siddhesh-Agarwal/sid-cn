@@ -1,6 +1,7 @@
 "use client";
 
 import { CodeBlock } from "@/components/code-block";
+import { DisplayPreviewAndCode } from "@/components/display-preview-and-code";
 import InstallButton from "@/components/install-button";
 import { Separator } from "@/components/ui/separator";
 import { SpinningWheel } from "@/registry/new-york/blocks/spinning-wheel/spinning-wheel";
@@ -25,12 +26,12 @@ export default function Page() {
         </h4>
       </div>
       <section id="example">
-        <div className="flex items-center justify-center min-h-100 border rounded-md p-4">
+        <DisplayPreviewAndCode>
           <SpinningWheel
             rewardDetails={[{ reward: "Yes!" }, { reward: "No!" }]}
             setReward={setReward}
           />
-        </div>
+        </DisplayPreviewAndCode>
       </section>
 
       <Separator />

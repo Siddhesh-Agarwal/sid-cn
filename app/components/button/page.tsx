@@ -1,6 +1,7 @@
 "use client";
 
 import { CodeBlock } from "@/components/code-block";
+import { DisplayPreviewAndCode } from "@/components/display-preview-and-code";
 import InstallButton from "@/components/install-button";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -18,10 +19,10 @@ export default function Page() {
         </h4>
       </div>
       <section id="example">
-        <div className="grid grid-cols-2 md:grid-cols-4 items-center min-h-[200px] gap-4 border rounded-md p-4">
-          {shapes
-            .map((shape) =>
-              variants.map((variant) => (
+        <DisplayPreviewAndCode>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {shapes.flatMap((shape) =>
+              variants.flatMap((variant) => (
                 <Button
                   key={`${variant}-${shape}`}
                   variant={variant as any}
@@ -30,9 +31,9 @@ export default function Page() {
                   {variant}-{shape}
                 </Button>
               )),
-            )
-            .flat()}
-        </div>
+            )}
+          </div>
+        </DisplayPreviewAndCode>
       </section>
 
       <Separator />

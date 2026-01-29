@@ -1,6 +1,7 @@
 "use client";
 
 import { CodeBlock } from "@/components/code-block";
+import { DisplayPreviewAndCode } from "@/components/display-preview-and-code";
 import InstallButton from "@/components/install-button";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -199,9 +200,9 @@ export default function Page() {
         </h4>
       </div>
       <section id="example">
-        <div className="flex items-center justify-center min-h-[400px] border rounded-md p-4">
+        <DisplayPreviewAndCode>
           <DataTable columns={columns} data={tableData} />
-        </div>
+        </DisplayPreviewAndCode>
       </section>
 
       <Separator />

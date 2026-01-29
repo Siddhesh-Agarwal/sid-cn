@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { DateInput } from "@/registry/new-york/components/date-input";
 import { CodeBlock } from "@/components/code-block";
 import { Separator } from "@/components/ui/separator";
+import { DisplayPreviewAndCode } from "@/components/display-preview-and-code";
 
 export default function Page() {
   const [date, setDate] = useState<Date | null>(null);
@@ -27,12 +28,12 @@ export default function Page() {
         </h4>
       </div>
       <section id="example">
-        <div className="flex items-center justify-center min-h-[400px] border rounded-md p-4">
+        <DisplayPreviewAndCode>
           <div className="flex flex-col">
             <Label className="mb-1">Enter a date</Label>
             <DateInput onChange={setDate} />
           </div>
-        </div>
+        </DisplayPreviewAndCode>
       </section>
 
       <Separator />

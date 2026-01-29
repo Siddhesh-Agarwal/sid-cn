@@ -1,6 +1,7 @@
 "use client";
 
 import { CodeBlock } from "@/components/code-block";
+import { DisplayPreviewAndCode } from "@/components/display-preview-and-code";
 import InstallButton from "@/components/install-button";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
@@ -26,12 +27,12 @@ export default function Page() {
         </h4>
       </div>
       <section id="example">
-        <div className="flex items-center justify-center min-h-[400px] border rounded-md p-4">
+        <DisplayPreviewAndCode>
           <div className="flex flex-col">
             <Label className="mb-1">Enter a date and time</Label>
             <DateTimeInput onChange={(date) => setDate(date)} />
           </div>
-        </div>
+        </DisplayPreviewAndCode>
       </section>
 
       <Separator />
