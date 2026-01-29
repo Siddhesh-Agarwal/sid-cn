@@ -14,6 +14,7 @@ import {
   SidebarMenuItem,
   SidebarTrigger,
 } from "./ui/sidebar";
+import { SearchButton } from "./search-button";
 
 export default function AppSidebar({
   children,
@@ -68,6 +69,7 @@ export default function AppSidebar({
         <nav className="bg-sidebar flex justify-between items-center px-4">
           <SidebarTrigger />
           <div className="div">
+            <SearchButton />
             <GitHubLink />
             <ThemeToggle />
           </div>
