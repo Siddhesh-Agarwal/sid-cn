@@ -1,5 +1,5 @@
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
-import { blockPages } from "@/lib/data";
+import { blockPages } from "@/data";
 import Link from "next/link";
 
 export default function Page() {

@@ -13,7 +13,7 @@ import {
 import { useEffect, useState } from "react";
 import { Button } from "@/registry/new-york/components/button";
 import { SearchIcon } from "lucide-react";
-import { blockPages, componentPages } from "@/lib/data";
+import { blockPages, componentPages } from "@/data";
 import { isMac } from "@/registry/new-york/lib/utils";
 import { Kbd, KbdGroup } from "./ui/kbd";
 

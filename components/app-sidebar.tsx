@@ -1,4 +1,4 @@
-import { blockPages, componentPages } from "@/lib/data";
+import { blockPages, componentPages } from "@/data";
 import { ThemeToggle } from "@/registry/new-york/components/theme-toggle";
 import { Square } from "lucide-react";
 import Link from "next/link";
