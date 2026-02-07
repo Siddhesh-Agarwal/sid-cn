@@ -28,6 +28,10 @@ export const componentPages: PageType[] = [
     name: "Package Manager Command",
     path: "/components/package-manager-command",
   },
+  {
+    name: "Sidebar",
+    path: "/components/sidebar",
+  },
 ];
 
 export const blockPages: PageType[] = [

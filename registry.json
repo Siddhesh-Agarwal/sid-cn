@@ -256,6 +256,21 @@
       ]
     },
     {
+      "name": "sidebar",
+      "type": "registry:component",
+      "title": "Sidebar",
+      "description": "A beautiful sidebar component",
+      "registryDependencies": ["https://ui.siddhesh.cc/r/button.json"],
+      "dependencies": ["lucide-react", "radix-ui", "js-cookie"],
+      "devDependencies": ["@types/js-cookie"],
+      "files": [
+        {
+          "path": "registry/new-york/components/sidebar.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "theme-toggle",
       "type": "registry:component",
       "title": "Theme Toggle",

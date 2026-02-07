@@ -4,12 +4,14 @@ import { CodeBlock } from "@/components/code-block";
 import { DisplayPreviewAndCode } from "@/components/display-preview-and-code";
 import InstallButton from "@/components/install-button";
 import { Separator } from "@/components/ui/separator";
-import { type PackageManager, PackageManagerCommand } from "@/registry/new-york/components/package-manager-command";
+import {
+  type PackageManager,
+  PackageManagerCommand,
+} from "@/registry/new-york/components/package-manager-command";
 
 export default function Page() {
-
   function getCommand(packageManager: PackageManager) {
-    return `${packageManager} install`
+    return `${packageManager} install`;
   }
 
   return (
@@ -22,7 +24,7 @@ export default function Page() {
       </div>
       <section id="example">
         <DisplayPreviewAndCode>
-            <PackageManagerCommand getCommand={getCommand} />
+          <PackageManagerCommand getCommand={getCommand} />
         </DisplayPreviewAndCode>
       </section>
 
@@ -35,18 +37,18 @@ export default function Page() {
 
       <Separator />
 
-            <section id="usage" className="py-4">
-              <h2 className="text-xl font-semibold">Usage</h2>
-              <CodeBlock
-                text={`import { type PackageManager, PackageManagerCommand } from "@/registry/new-york/components/package-manager-command"`}
-              />
-              <CodeBlock
-                text={"function getCommand(packageManager: PackageManager) {\n    return `${packageManager} install`\n  }"}
-              />
-              <CodeBlock
-                text={"<PackageManagerCommand getCommand={getCommand} />"}
-              />
-            </section>
+      <section id="usage" className="py-4">
+        <h2 className="text-xl font-semibold">Usage</h2>
+        <CodeBlock
+          text={`import { type PackageManager, PackageManagerCommand } from "@/registry/new-york/components/package-manager-command"`}
+        />
+        <CodeBlock
+          text={
+            "function getCommand(packageManager: PackageManager) {\n    return `${packageManager} install`\n  }"
+          }
+        />
+        <CodeBlock text={"<PackageManagerCommand getCommand={getCommand} />"} />
+      </section>
     </div>
-  )
+  );
 }
