@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "icons",
-  "type": "registry:item",
+  "type": "registry:ui",
   "title": "Icons",
   "description": "A collection of popular icons",
   "files": [

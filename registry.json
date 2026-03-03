@@ -140,8 +140,21 @@
       ]
     },
     {
+      "name": "sonner",
+      "type": "registry:ui",
+      "title": "Sonner",
+      "description": "A beautiful toast notification component",
+      "dependencies": ["sonner", "lucide-react"],
+      "files": [
+        {
+          "path": "registry/new-york/components/sonner.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "icons",
-      "type": "registry:item",
+      "type": "registry:ui",
       "title": "Icons",
       "description": "A collection of popular icons",
       "files": [
